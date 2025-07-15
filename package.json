@@ -1,0 +1,19 @@
+{
+  "name": "luke-real-estate-site",
+  "version": "1.0.0",
+  "description": "Luke Fornieri - MAK REALTY Premium Real Estate Services",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": ["real estate", "melbourne", "luxury properties"],
+  "author": "Luke Fornieri",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+} 
