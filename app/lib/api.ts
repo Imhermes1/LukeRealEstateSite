@@ -67,7 +67,7 @@ export async function fetchInstagramPosts() {
     
     // Extract Instagram post URLs from the HTML
     const postMatches = html.match(/https:\/\/www\.instagram\.com\/p\/[a-zA-Z0-9_-]+\//g) || [];
-    const uniquePosts = [...new Set(postMatches)].slice(0, INSTAGRAM_CONFIG.MAX_RESULTS);
+    const uniquePosts = Array.from(new Set(postMatches)).slice(0, INSTAGRAM_CONFIG.MAX_RESULTS);
     
     if (uniquePosts.length > 0) {
       return uniquePosts.map((permalink, index) => ({
@@ -109,7 +109,7 @@ export async function fetchInstagramPostsAlternative() {
     
     // Extract post URLs from the HTML
     const postMatches = html.match(/https:\/\/www\.instagram\.com\/p\/[a-zA-Z0-9_-]+\//g) || [];
-    const uniquePosts = [...new Set(postMatches)].slice(0, INSTAGRAM_CONFIG.MAX_RESULTS);
+    const uniquePosts = Array.from(new Set(postMatches)).slice(0, INSTAGRAM_CONFIG.MAX_RESULTS);
     
     return uniquePosts.map((permalink, index) => ({
       id: `post_${index}`,
