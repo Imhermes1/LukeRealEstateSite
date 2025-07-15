@@ -685,6 +685,7 @@ a:focus-visible {
   width: 100%;
   height: 400px;
   object-fit: cover;
+  object-position: center 25%;
   border-radius: var(--radius-lg);
   position: relative;
 }
@@ -692,7 +693,7 @@ a:focus-visible {
 .about-image {
   position: relative;
   width: 100%;
-  height: 400px;
+  height: 500px;
   border-radius: var(--radius-lg);
   overflow: hidden;
 }

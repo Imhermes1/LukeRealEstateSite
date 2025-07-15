@@ -7,7 +7,7 @@ export default function About() {
         <div className="about-content">
           <div className="about-text">
             <h2 className="section-title">About Luke Fornieri</h2>
-            <p>Luke Fornieri is a Licensed Estate Agent and Sales Partner at MAK Realty, specialising in Melbourne's eastern and south-eastern premium property market. In FY24/25, Luke successfully closed over 40 property transactions valued at nearly $100 million. Known for his tailored approach, strong negotiation skills, and clear communication, Luke consistently delivers outstanding results.</p>
+            <p>Luke Fornieri is a Licensed Estate Agent and Sales Partner at MAK Realty, specialising in Melbourne's Eastern and South Eastern suburbs premium property market. Luke has successfully closed over 40 property transactions valued at nearly $100 million. Known for his tailored approach, strong negotiation skills, and clear communication, Luke consistently delivers outstanding results.</p>
             <p>Luke's innovative marketing strategies and ability to think outside the box ensure maximum exposure and excellent outcomes for his clients. His commitment to excellence helps clients achieve their property goals with confidence.</p>
             <p>Luke prioritises clear and consistent vendor communication, ensuring clients are well-informed and confident throughout the process. As a proud member of MAK REALTY, I combine local expertise with cutting-edge marketing strategies to deliver results that exceed expectations.</p>
           </div>
@@ -16,7 +16,7 @@ export default function About() {
               src="/images/Luke_004_HiRes.jpg" 
               alt="Luke Fornieri, Professional Real Estate Agent" 
               width={500}
-              height={400}
+              height={500}
               className="about-photo"
               priority
               sizes="(max-width: 768px) 100vw, 50vw"
