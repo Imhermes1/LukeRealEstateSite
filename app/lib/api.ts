@@ -74,7 +74,7 @@ export async function fetchInstagramPosts() {
         id: `post_${index}`,
         caption: `Latest Instagram post from @${INSTAGRAM_CONFIG.USERNAME}`,
         mediaUrl: `https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=400&q=80&v=${index}`,
-        permalink,
+        permalink: String(permalink),
         timestamp: new Date(Date.now() - index * 86400000).toISOString(),
         mediaType: 'IMAGE'
       }));
@@ -115,7 +115,7 @@ export async function fetchInstagramPostsAlternative() {
       id: `post_${index}`,
       caption: `Instagram post from @${INSTAGRAM_CONFIG.USERNAME}`,
       mediaUrl: `https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=400&q=80&v=${index}`,
-      permalink,
+      permalink: String(permalink),
       timestamp: new Date(Date.now() - index * 86400000).toISOString(),
       mediaType: 'IMAGE'
     }));
