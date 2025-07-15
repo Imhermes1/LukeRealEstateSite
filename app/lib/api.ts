@@ -4,7 +4,7 @@
 export const YOUTUBE_CONFIG = {
   API_KEY: process.env.NEXT_PUBLIC_YOUTUBE_API_KEY || 'AIzaSyB91cyaxCpOEzolVTCDdzDwiJ3J76zH0nI',
   CHANNEL_ID: process.env.NEXT_PUBLIC_YOUTUBE_CHANNEL_ID || 'UCc5ffGbB4crnOzNAHF5cjBA',
-  MAX_RESULTS: 3
+  MAX_RESULTS: 2
 };
 
 // Instagram Configuration (manual feed)
@@ -129,13 +129,6 @@ export const FALLBACK_YOUTUBE_VIDEOS = [
     title: "Property Investment Strategies for 2024",
     thumbnail: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=320&q=80",
     publishedAt: "2024-01-10T10:00:00Z",
-    channelTitle: "Luke Fornieri Real Estate"
-  },
-  {
-    id: "placeholder3",
-    title: "Luxury Home Tour: 5 Princely Terrace",
-    thumbnail: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=320&q=80",
-    publishedAt: "2024-01-05T10:00:00Z",
     channelTitle: "Luke Fornieri Real Estate"
   }
 ];
