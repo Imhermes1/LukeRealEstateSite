@@ -23,7 +23,7 @@ export default function Services() {
           <p className="video-description">Watch Luke share insights on Melbourne's luxury property market and what makes MAK REALTY the preferred choice for discerning clients.</p>
           <div className="video-container">
             <iframe
-              src="https://www.youtube.com/embed/z6rLeOVZcpU"
+              src="https://www.youtube.com/embed/z6rLeOVZcpU?autoplay=1&mute=1"
               title="Luke Fornieri - Melbourne Luxury Real Estate Market Insights"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
