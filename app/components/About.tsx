@@ -5,7 +5,7 @@ export default function About() {
         <div className="about-content">
           <div className="about-text">
             <h2 className="section-title">About Luke Fornieri</h2>
-            <p>Luke Fornieri is a senior sales executive renowned for closing 35 luxury properties valued at over $40 million in FY23/24. With a bespoke approach that recognises each property's unique narrative, Luke delivers unparalleled negotiation, communication and buyer-advisory services across Melbourne's prestige market.</p>
+            <p>Luke Fornieri is a Licensed Estate Agent & Sales Partner at MAK Realty. Closing over 40 properties valued close to $100 million in FY24/25. With a bespoke approach that recognises each property's unique narrative, Luke delivers unparalleled negotiation, communication and buyer-advisory services across Melbourne's prestige market.</p>
             <p>My commitment to excellence and deep understanding of luxury markets has resulted in record-breaking sales, helping clients achieve their property goals with confidence and precision.</p>
             <p>As a proud member of MAK REALTY, I combine local expertise with cutting-edge marketing strategies to deliver results that exceed expectations.</p>
           </div>
