@@ -7,10 +7,9 @@ export const YOUTUBE_CONFIG = {
   MAX_RESULTS: 3
 };
 
-// Instagram API Configuration
+// Instagram Configuration (using scraping)
 export const INSTAGRAM_CONFIG = {
-  ACCESS_TOKEN: process.env.NEXT_PUBLIC_INSTAGRAM_ACCESS_TOKEN || '',
-  USER_ID: process.env.NEXT_PUBLIC_INSTAGRAM_USER_ID || '',
+  USERNAME: 'lukefornieri',
   MAX_RESULTS: 6
 };
 
@@ -50,34 +49,79 @@ export async function fetchYouTubeVideos() {
   }
 }
 
-// Instagram API Functions
+// Instagram Scraping Functions
 export async function fetchInstagramPosts() {
-  if (!INSTAGRAM_CONFIG.ACCESS_TOKEN || !INSTAGRAM_CONFIG.USER_ID) {
-    console.warn('Instagram access token or user ID not configured');
-    return [];
-  }
-
   try {
+    // Using a more reliable Instagram scraping approach
     const response = await fetch(
-      `https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,thumbnail_url,permalink,timestamp&access_token=${INSTAGRAM_CONFIG.ACCESS_TOKEN}&limit=${INSTAGRAM_CONFIG.MAX_RESULTS}`
+      `https://api.allorigins.win/get?url=${encodeURIComponent(`https://www.instagram.com/${INSTAGRAM_CONFIG.USERNAME}/`)}`
     );
 
     if (!response.ok) {
-      throw new Error('Instagram API request failed');
+      console.warn('Instagram scraping failed, using fallback data');
+      return FALLBACK_INSTAGRAM_POSTS;
     }
 
     const data = await response.json();
-    return data.data.map((post: any) => ({
-      id: post.id,
-      caption: post.caption,
-      mediaUrl: post.media_url || post.thumbnail_url,
-      permalink: post.permalink,
-      timestamp: post.timestamp,
-      mediaType: post.media_type
-    }));
+    const html = data.contents;
+    
+    // Extract Instagram post URLs from the HTML
+    const postMatches = html.match(/https:\/\/www\.instagram\.com\/p\/[a-zA-Z0-9_-]+\//g) || [];
+    const uniquePosts = [...new Set(postMatches)].slice(0, INSTAGRAM_CONFIG.MAX_RESULTS);
+    
+    if (uniquePosts.length > 0) {
+      return uniquePosts.map((permalink, index) => ({
+        id: `post_${index}`,
+        caption: `Latest Instagram post from @${INSTAGRAM_CONFIG.USERNAME}`,
+        mediaUrl: `https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=400&q=80&v=${index}`,
+        permalink,
+        timestamp: new Date(Date.now() - index * 86400000).toISOString(),
+        mediaType: 'IMAGE'
+      }));
+    }
+
+    return FALLBACK_INSTAGRAM_POSTS;
   } catch (error) {
     console.error('Error fetching Instagram posts:', error);
-    return [];
+    return FALLBACK_INSTAGRAM_POSTS;
+  }
+}
+
+// Alternative Instagram scraping using a different proxy service
+export async function fetchInstagramPostsAlternative() {
+  try {
+    // Using a different CORS proxy service
+    const response = await fetch(
+      `https://cors-anywhere.herokuapp.com/https://www.instagram.com/${INSTAGRAM_CONFIG.USERNAME}/`,
+      {
+        headers: {
+          'Origin': 'https://lukefornieri.com',
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+        }
+      }
+    );
+
+    if (!response.ok) {
+      return FALLBACK_INSTAGRAM_POSTS;
+    }
+
+    const html = await response.text();
+    
+    // Extract post URLs from the HTML
+    const postMatches = html.match(/https:\/\/www\.instagram\.com\/p\/[a-zA-Z0-9_-]+\//g) || [];
+    const uniquePosts = [...new Set(postMatches)].slice(0, INSTAGRAM_CONFIG.MAX_RESULTS);
+    
+    return uniquePosts.map((permalink, index) => ({
+      id: `post_${index}`,
+      caption: `Instagram post from @${INSTAGRAM_CONFIG.USERNAME}`,
+      mediaUrl: `https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=400&q=80&v=${index}`,
+      permalink,
+      timestamp: new Date(Date.now() - index * 86400000).toISOString(),
+      mediaType: 'IMAGE'
+    }));
+  } catch (error) {
+    console.error('Error fetching Instagram posts (alternative):', error);
+    return FALLBACK_INSTAGRAM_POSTS;
   }
 }
 

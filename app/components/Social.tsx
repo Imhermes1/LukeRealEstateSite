@@ -3,7 +3,8 @@
 import { useState, useEffect } from 'react';
 import { 
   fetchYouTubeVideos, 
-  fetchInstagramPosts, 
+  fetchInstagramPosts,
+  fetchInstagramPostsAlternative,
   FALLBACK_YOUTUBE_VIDEOS, 
   FALLBACK_INSTAGRAM_POSTS 
 } from '../lib/api';
@@ -64,8 +65,15 @@ export default function Social() {
         const youtubeData = await fetchYouTubeVideos();
         setYoutubeVideos(youtubeData.length > 0 ? youtubeData : FALLBACK_YOUTUBE_VIDEOS);
 
-        // Fetch Instagram posts
-        const instagramData = await fetchInstagramPosts();
+        // Fetch Instagram posts using scraping
+        let instagramData = await fetchInstagramPosts();
+        
+        // If primary scraping fails, try alternative method
+        if (instagramData.length === 0 || instagramData === FALLBACK_INSTAGRAM_POSTS) {
+          console.log('Trying alternative Instagram scraping method...');
+          instagramData = await fetchInstagramPostsAlternative();
+        }
+        
         setInstagramPosts(instagramData.length > 0 ? instagramData : FALLBACK_INSTAGRAM_POSTS);
 
       } catch (err) {
