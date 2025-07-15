@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function About() {
   return (
     <section id="about" className="section" aria-label="About">
@@ -5,15 +7,21 @@ export default function About() {
         <div className="about-content">
           <div className="about-text">
             <h2 className="section-title">About Luke Fornieri</h2>
-            <p>Luke Fornieri is a Licensed Estate Agent & Sales Partner at MAK Realty. Closing over 40 properties valued close to $100 million in FY24/25. With a bespoke approach that recognises each property's unique narrative, Luke delivers unparalleled negotiation, communication and buyer-advisory services across Melbourne's prestige market.</p>
-            <p>My commitment to excellence and deep understanding of luxury markets has resulted in record-breaking sales, helping clients achieve their property goals with confidence and precision.</p>
-            <p>As a proud member of MAK REALTY, I combine local expertise with cutting-edge marketing strategies to deliver results that exceed expectations.</p>
+            <p>Luke Fornieri is a Licensed Estate Agent and Sales Partner at MAK Realty, specialising in Melbourne's eastern and south-eastern premium property market. In FY24/25, Luke successfully closed over 40 property transactions valued at nearly $100 million. Known for his tailored approach, strong negotiation skills, and clear communication, Luke consistently delivers outstanding results.</p>
+            <p>Luke's innovative marketing strategies and ability to think outside the box ensure maximum exposure and excellent outcomes for his clients. His commitment to excellence helps clients achieve their property goals with confidence.</p>
+            <p>Luke prioritises clear and consistent vendor communication, ensuring clients are well-informed and confident throughout the process. As a proud member of MAK REALTY, I combine local expertise with cutting-edge marketing strategies to deliver results that exceed expectations.</p>
           </div>
           <div className="about-image">
-            <img 
-              src="https://images.unsplash.com/photo-1609334769394-26ab7b0cf5db?auto=format&fit=crop&w=500&q=60" 
+            <Image 
+              src="/images/Luke_004_HiRes.jpg" 
               alt="Luke Fornieri, Professional Real Estate Agent" 
+              width={500}
+              height={400}
               className="about-photo"
+              priority
+              sizes="(max-width: 768px) 100vw, 50vw"
+              placeholder="blur"
+              blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
             />
           </div>
         </div>
