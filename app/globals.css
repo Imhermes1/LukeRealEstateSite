@@ -1474,6 +1474,7 @@ a:focus-visible {
   overflow: hidden;
   border: 1px solid var(--color-card-border);
   transition: transform var(--duration-fast) var(--ease-standard);
+  position: relative;
 }
 
 .instagram-preview-item:hover {
@@ -1484,6 +1485,52 @@ a:focus-visible {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.instagram-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+  color: white;
+  padding: var(--space-4) var(--space-6);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+}
+
+.instagram-recent-posts {
+  border-top: 1px solid var(--color-card-border);
+  padding-top: var(--space-12);
+}
+
+.instagram-recent-posts h5 {
+  margin: 0 0 var(--space-8) 0;
+  color: var(--color-text);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.instagram-post-preview {
+  margin-bottom: var(--space-8);
+  padding: var(--space-8);
+  background-color: var(--color-background);
+  border-radius: var(--radius-base);
+  border-left: 3px solid var(--color-primary);
+}
+
+.instagram-post-preview p {
+  margin: 0 0 var(--space-4) 0;
+  color: var(--color-text);
+  font-size: var(--font-size-sm);
+  line-height: 1.4;
+  font-style: italic;
+}
+
+.post-time {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
 }
 
 .instagram-cta {

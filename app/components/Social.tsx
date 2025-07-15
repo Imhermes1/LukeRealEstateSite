@@ -94,22 +94,52 @@ export default function Social() {
                 
                 <div className="instagram-preview-grid">
                   <div className="instagram-preview-item">
-                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=150&h=150&q=80" alt="Property 1" />
+                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=150&h=150&q=80" alt="Luxury Property" />
+                    <div className="instagram-overlay">
+                      <span>🏠 Just Listed</span>
+                    </div>
                   </div>
                   <div className="instagram-preview-item">
-                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=150&h=150&q=80" alt="Property 2" />
+                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=150&h=150&q=80" alt="Property View" />
+                    <div className="instagram-overlay">
+                      <span>🌅 Sunset View</span>
+                    </div>
                   </div>
                   <div className="instagram-preview-item">
-                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=150&h=150&q=80" alt="Property 3" />
+                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=150&h=150&q=80" alt="Interior Design" />
+                    <div className="instagram-overlay">
+                      <span>✨ Luxury Interior</span>
+                    </div>
                   </div>
                   <div className="instagram-preview-item">
-                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=150&h=150&q=80" alt="Property 4" />
+                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=150&h=150&q=80" alt="Garden" />
+                    <div className="instagram-overlay">
+                      <span>🌿 Private Garden</span>
+                    </div>
                   </div>
                   <div className="instagram-preview-item">
-                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=150&h=150&q=80" alt="Property 5" />
+                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=150&h=150&q=80" alt="Kitchen" />
+                    <div className="instagram-overlay">
+                      <span>🍳 Chef's Kitchen</span>
+                    </div>
                   </div>
                   <div className="instagram-preview-item">
-                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=150&h=150&q=80" alt="Property 6" />
+                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=150&h=150&q=80" alt="Pool" />
+                    <div className="instagram-overlay">
+                      <span>🏊‍♂️ Infinity Pool</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="instagram-recent-posts">
+                  <h5>Recent Posts</h5>
+                  <div className="instagram-post-preview">
+                    <p>"Just closed another record-breaking sale in Melbourne's luxury market! 🏠✨ #RealEstate #Melbourne #LuxuryHomes"</p>
+                    <span className="post-time">2 hours ago</span>
+                  </div>
+                  <div className="instagram-post-preview">
+                    <p>"Beautiful sunset view from one of our premium listings. Melbourne's property market never disappoints! 🌅 #MelbourneRealEstate"</p>
+                    <span className="post-time">1 day ago</span>
                   </div>
                 </div>
                 
