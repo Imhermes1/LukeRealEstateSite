@@ -1571,4 +1571,199 @@ a:focus-visible {
   width: 100%;
   height: 400px;
   border: none;
+}
+
+/* New Instagram Feed Styles */
+.instagram-feed {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+  max-height: 600px;
+  overflow-y: auto;
+  padding-right: var(--space-8);
+}
+
+.instagram-post {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--duration-normal) var(--ease-standard);
+}
+
+.instagram-post:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.instagram-post-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-12) var(--space-16);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.instagram-user {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.instagram-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.instagram-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.instagram-user-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.instagram-username {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  font-size: var(--font-size-sm);
+}
+
+.instagram-location {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+}
+
+.instagram-timestamp {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+}
+
+.instagram-image {
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+}
+
+.instagram-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--duration-normal) var(--ease-standard);
+}
+
+.instagram-post:hover .instagram-image img {
+  transform: scale(1.02);
+}
+
+.instagram-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-8) var(--space-16);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.instagram-actions-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+}
+
+.instagram-action-btn {
+  background: none;
+  border: none;
+  font-size: var(--font-size-lg);
+  cursor: pointer;
+  padding: var(--space-4);
+  border-radius: var(--radius-base);
+  transition: background-color var(--duration-fast) var(--ease-standard);
+}
+
+.instagram-action-btn:hover {
+  background-color: var(--color-secondary);
+}
+
+.instagram-likes {
+  padding: var(--space-8) var(--space-16) 0;
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+}
+
+.instagram-caption {
+  padding: var(--space-8) var(--space-16) 0;
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
+  color: var(--color-text);
+}
+
+.instagram-caption .instagram-username {
+  font-weight: var(--font-weight-semibold);
+  margin-right: var(--space-4);
+}
+
+.instagram-comments {
+  padding: var(--space-4) var(--space-16) var(--space-8);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+}
+
+.instagram-comments:hover {
+  color: var(--color-text);
+}
+
+.instagram-cta {
+  margin-top: var(--space-16);
+  text-align: center;
+}
+
+.instagram-follow-button {
+  display: inline-block;
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  color: white;
+  padding: var(--space-12) var(--space-24);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-sm);
+  transition: transform var(--duration-fast) var(--ease-standard), box-shadow var(--duration-fast) var(--ease-standard);
+  box-shadow: var(--shadow-sm);
+}
+
+.instagram-follow-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  color: white;
+}
+
+/* Responsive adjustments for Instagram feed */
+@media (max-width: 768px) {
+  .instagram-feed {
+    max-height: 500px;
+    gap: var(--space-16);
+  }
+  
+  .instagram-post-header {
+    padding: var(--space-8) var(--space-12);
+  }
+  
+  .instagram-actions {
+    padding: var(--space-6) var(--space-12);
+  }
+  
+  .instagram-likes,
+  .instagram-caption,
+  .instagram-comments {
+    padding-left: var(--space-12);
+    padding-right: var(--space-12);
+  }
 } 

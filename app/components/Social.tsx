@@ -21,6 +21,16 @@ interface YouTubeVideo {
   channelTitle: string;
 }
 
+interface InstagramPost {
+  id: number;
+  image: string;
+  caption: string;
+  likes: number;
+  comments: number;
+  timestamp: string;
+  location?: string;
+}
+
 function formatDate(dateStr: string) {
   const date = new Date(dateStr);
   return date.toLocaleDateString("en-AU", {
@@ -29,6 +39,62 @@ function formatDate(dateStr: string) {
     day: "numeric"
   });
 }
+
+// Instagram feed data
+const INSTAGRAM_POSTS: InstagramPost[] = [
+  {
+    id: 1,
+    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=400&h=400&q=80",
+    caption: "Just closed another record-breaking sale in Melbourne's luxury market! 🏠✨ #RealEstate #Melbourne #LuxuryHomes",
+    likes: 247,
+    comments: 18,
+    timestamp: "2 hours ago",
+    location: "Melbourne, Victoria"
+  },
+  {
+    id: 2,
+    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=400&h=400&q=80",
+    caption: "Beautiful sunset view from one of our premium listings. Melbourne's property market never disappoints! 🌅 #MelbourneRealEstate",
+    likes: 189,
+    comments: 12,
+    timestamp: "1 day ago",
+    location: "South Yarra, Melbourne"
+  },
+  {
+    id: 3,
+    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=400&h=400&q=80",
+    caption: "Luxury living at its finest. This stunning penthouse features panoramic city views and world-class amenities. #LuxuryRealEstate #Melbourne",
+    likes: 312,
+    comments: 24,
+    timestamp: "3 days ago",
+    location: "Melbourne CBD"
+  },
+  {
+    id: 4,
+    image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=400&h=400&q=80",
+    caption: "Chef's kitchen dreams come true! This gourmet kitchen is perfect for entertaining. #KitchenGoals #LuxuryHomes",
+    likes: 156,
+    comments: 8,
+    timestamp: "5 days ago"
+  },
+  {
+    id: 5,
+    image: "https://images.unsplash.com/photo-1600607687644-c7171b42498b?auto=format&fit=crop&w=400&h=400&q=80",
+    caption: "Private garden oasis in the heart of the city. Perfect for morning coffee or evening entertaining. #GardenDesign #MelbourneHomes",
+    likes: 203,
+    comments: 15,
+    timestamp: "1 week ago",
+    location: "Toorak, Melbourne"
+  },
+  {
+    id: 6,
+    image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=400&h=400&q=80",
+    caption: "Infinity pool with city skyline views. This is what luxury living is all about! 🏊‍♂️ #InfinityPool #LuxuryRealEstate",
+    likes: 278,
+    comments: 21,
+    timestamp: "1 week ago"
+  }
+];
 
 export default function Social() {
   const [mediumPosts, setMediumPosts] = useState<MediumPost[]>([]);
@@ -72,93 +138,66 @@ export default function Social() {
         <div className="social-grid">
           <div className="social-column">
             <h3 className="social-subtitle">Instagram Feed</h3>
-            <div className="instagram-widget-container">
-              {/* Instagram Profile Link with Preview */}
-              <div className="instagram-profile-preview">
-                <div className="instagram-profile-header">
-                  <div className="instagram-avatar">
-                    <img 
-                      src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=100&h=100&q=80" 
-                      alt="@lukefornieri"
-                    />
-                  </div>
-                  <div className="instagram-profile-info">
-                    <h4>@lukefornieri</h4>
-                    <p>Melbourne Luxury Real Estate</p>
-                    <div className="instagram-stats">
-                      <span>🏠 Premium Properties</span>
-                      <span>📈 Market Insights</span>
+            <div className="instagram-feed">
+              {INSTAGRAM_POSTS.map((post) => (
+                <div key={post.id} className="instagram-post">
+                  <div className="instagram-post-header">
+                    <div className="instagram-user">
+                      <img 
+                        src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=40&h=40&q=80" 
+                        alt="@lukefornieri"
+                        className="instagram-avatar"
+                      />
+                      <div className="instagram-user-info">
+                        <span className="instagram-username">lukefornieri</span>
+                        {post.location && <span className="instagram-location">{post.location}</span>}
+                      </div>
                     </div>
+                    <span className="instagram-timestamp">{post.timestamp}</span>
                   </div>
+                  
+                  <div className="instagram-image">
+                    <img src={post.image} alt="Instagram post" />
+                  </div>
+                  
+                  <div className="instagram-actions">
+                    <div className="instagram-actions-left">
+                      <button className="instagram-action-btn">❤️</button>
+                      <button className="instagram-action-btn">💬</button>
+                      <button className="instagram-action-btn">📤</button>
+                    </div>
+                    <button className="instagram-action-btn">🔖</button>
+                  </div>
+                  
+                  <div className="instagram-likes">
+                    {post.likes} likes
+                  </div>
+                  
+                  <div className="instagram-caption">
+                    <span className="instagram-username">lukefornieri</span> {post.caption}
+                  </div>
+                  
+                  {post.comments > 0 && (
+                    <div className="instagram-comments">
+                      View all {post.comments} comments
+                    </div>
+                  )}
                 </div>
-                
-                <div className="instagram-preview-grid">
-                  <div className="instagram-preview-item">
-                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=150&h=150&q=80" alt="Luxury Property" />
-                    <div className="instagram-overlay">
-                      <span>🏠 Just Listed</span>
-                    </div>
-                  </div>
-                  <div className="instagram-preview-item">
-                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=150&h=150&q=80" alt="Property View" />
-                    <div className="instagram-overlay">
-                      <span>🌅 Sunset View</span>
-                    </div>
-                  </div>
-                  <div className="instagram-preview-item">
-                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=150&h=150&q=80" alt="Interior Design" />
-                    <div className="instagram-overlay">
-                      <span>✨ Luxury Interior</span>
-                    </div>
-                  </div>
-                  <div className="instagram-preview-item">
-                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=150&h=150&q=80" alt="Garden" />
-                    <div className="instagram-overlay">
-                      <span>🌿 Private Garden</span>
-                    </div>
-                  </div>
-                  <div className="instagram-preview-item">
-                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=150&h=150&q=80" alt="Kitchen" />
-                    <div className="instagram-overlay">
-                      <span>🍳 Chef's Kitchen</span>
-                    </div>
-                  </div>
-                  <div className="instagram-preview-item">
-                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=150&h=150&q=80" alt="Pool" />
-                    <div className="instagram-overlay">
-                      <span>🏊‍♂️ Infinity Pool</span>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="instagram-recent-posts">
-                  <h5>Recent Posts</h5>
-                  <div className="instagram-post-preview">
-                    <p>"Just closed another record-breaking sale in Melbourne's luxury market! 🏠✨ #RealEstate #Melbourne #LuxuryHomes"</p>
-                    <span className="post-time">2 hours ago</span>
-                  </div>
-                  <div className="instagram-post-preview">
-                    <p>"Beautiful sunset view from one of our premium listings. Melbourne's property market never disappoints! 🌅 #MelbourneRealEstate"</p>
-                    <span className="post-time">1 day ago</span>
-                  </div>
-                </div>
-                
-                <div className="instagram-cta">
-                  <a 
-                    href="https://instagram.com/lukefornieri" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="instagram-follow-button"
-                  >
-                    Follow on Instagram
-                  </a>
-                </div>
+              ))}
+              
+              <div className="instagram-cta">
+                <a 
+                  href="https://instagram.com/lukefornieri" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="instagram-follow-button"
+                >
+                  Follow on Instagram
+                </a>
               </div>
             </div>
-            <p className="social-fallback">
-              <a href="https://instagram.com/lukefornieri" target="_blank" rel="noopener noreferrer">View on Instagram</a>
-            </p>
           </div>
+          
           <div className="social-column">
             <h3 className="social-subtitle">Latest YouTube Videos</h3>
             <div className="youtube-videos" role="region" aria-live="polite" aria-label="YouTube videos">
@@ -186,6 +225,7 @@ export default function Social() {
               ))}
             </div>
           </div>
+          
           <div className="social-column">
             <h3 className="social-subtitle">Latest Articles</h3>
             <div className="medium-posts" role="region" aria-live="polite" aria-label="Medium articles">
