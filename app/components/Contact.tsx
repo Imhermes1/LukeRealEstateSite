@@ -1,0 +1,142 @@
+'use client';
+
+import { useState } from 'react';
+
+export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    contactMethod: 'email',
+    message: ''
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Handle form submission here
+    console.log('Form submitted:', formData);
+    // You can add email sending logic here
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  return (
+    <section id="contact" className="section" aria-label="Contact">
+      <div className="container">
+        <h2 className="section-title">Get In Touch</h2>
+        <div className="contact-content">
+          <div className="contact-info">
+            <h3>Let's Discuss Your Property Goals</h3>
+            <p>Ready to buy, sell, or invest in Melbourne's premium property market? I'm here to help you achieve your real estate objectives.</p>
+            <div className="contact-details">
+              <p><strong>Phone:</strong> +61 3 9876 5432</p>
+              <p><strong>Email:</strong> luke@makrealty.com.au</p>
+              <p><strong>Office:</strong> MAK REALTY, 123 Collins Street, Melbourne VIC 3000</p>
+            </div>
+          </div>
+          <form className="contact-form" aria-label="Contact form" onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label htmlFor="name" className="form-label">Name *</label>
+              <input 
+                type="text" 
+                id="name" 
+                name="name" 
+                className="form-control" 
+                required 
+                aria-describedby="name-help"
+                value={formData.name}
+                onChange={handleChange}
+              />
+              <div id="name-help" className="form-help">Please enter your full name</div>
+            </div>
+            <div className="form-group">
+              <label htmlFor="email" className="form-label">Email *</label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                className="form-control" 
+                required 
+                aria-describedby="email-help"
+                value={formData.email}
+                onChange={handleChange}
+              />
+              <div id="email-help" className="form-help">We'll use this to contact you</div>
+            </div>
+            <div className="form-group">
+              <label htmlFor="phone" className="form-label">Phone</label>
+              <input 
+                type="tel" 
+                id="phone" 
+                name="phone" 
+                className="form-control" 
+                aria-describedby="phone-help"
+                value={formData.phone}
+                onChange={handleChange}
+              />
+              <div id="phone-help" className="form-help">Optional phone number</div>
+            </div>
+            <div className="form-group">
+              <fieldset className="contact-method-fieldset">
+                <legend className="form-label">Preferred Contact Method</legend>
+                <div className="radio-group">
+                  <label className="radio-label">
+                    <input 
+                      type="radio" 
+                      name="contactMethod" 
+                      value="email" 
+                      checked={formData.contactMethod === 'email'}
+                      onChange={handleChange}
+                    />
+                    Email
+                  </label>
+                  <label className="radio-label">
+                    <input 
+                      type="radio" 
+                      name="contactMethod" 
+                      value="phone" 
+                      checked={formData.contactMethod === 'phone'}
+                      onChange={handleChange}
+                    />
+                    Phone
+                  </label>
+                  <label className="radio-label">
+                    <input 
+                      type="radio" 
+                      name="contactMethod" 
+                      value="either" 
+                      checked={formData.contactMethod === 'either'}
+                      onChange={handleChange}
+                    />
+                    Either
+                  </label>
+                </div>
+              </fieldset>
+            </div>
+            <div className="form-group">
+              <label htmlFor="message" className="form-label">Message *</label>
+              <textarea 
+                id="message" 
+                name="message" 
+                className="form-control" 
+                rows={4} 
+                required 
+                aria-describedby="message-help"
+                value={formData.message}
+                onChange={handleChange}
+              ></textarea>
+              <div id="message-help" className="form-help">Tell us about your property needs</div>
+            </div>
+            <button type="submit" className="btn btn-primary btn-full-width">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  );
+} 
