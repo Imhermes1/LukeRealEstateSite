@@ -73,36 +73,54 @@ export default function Social() {
           <div className="social-column">
             <h3 className="social-subtitle">Instagram Feed</h3>
             <div className="instagram-widget-container">
-              {/* Instagram Profile Embed */}
-              <div className="instagram-embed">
-                <iframe
-                  src="https://www.instagram.com/lukefornieri/embed"
-                  className="instagram-widget"
-                  title="Luke Fornieri Instagram Feed"
-                  frameBorder="0"
-                  scrolling="no"
-                  allowTransparency={true}
-                  style={{ width: '100%', height: '400px' }}
-                  onError={() => {
-                    // Show fallback if iframe fails to load
-                    const fallback = document.querySelector('.instagram-fallback') as HTMLElement;
-                    if (fallback) fallback.style.display = 'block';
-                  }}
-                />
-              </div>
-              
-              {/* Fallback if embed doesn't work */}
-              <div className="instagram-fallback">
-                <div className="instagram-fallback-content">
-                  <h4>Follow @lukefornieri on Instagram</h4>
-                  <p>Get the latest updates on Melbourne's luxury real estate market!</p>
+              {/* Instagram Profile Link with Preview */}
+              <div className="instagram-profile-preview">
+                <div className="instagram-profile-header">
+                  <div className="instagram-avatar">
+                    <img 
+                      src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=100&h=100&q=80" 
+                      alt="@lukefornieri"
+                    />
+                  </div>
+                  <div className="instagram-profile-info">
+                    <h4>@lukefornieri</h4>
+                    <p>Melbourne Luxury Real Estate</p>
+                    <div className="instagram-stats">
+                      <span>🏠 Premium Properties</span>
+                      <span>📈 Market Insights</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="instagram-preview-grid">
+                  <div className="instagram-preview-item">
+                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=150&h=150&q=80" alt="Property 1" />
+                  </div>
+                  <div className="instagram-preview-item">
+                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=150&h=150&q=80" alt="Property 2" />
+                  </div>
+                  <div className="instagram-preview-item">
+                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=150&h=150&q=80" alt="Property 3" />
+                  </div>
+                  <div className="instagram-preview-item">
+                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=150&h=150&q=80" alt="Property 4" />
+                  </div>
+                  <div className="instagram-preview-item">
+                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=150&h=150&q=80" alt="Property 5" />
+                  </div>
+                  <div className="instagram-preview-item">
+                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=150&h=150&q=80" alt="Property 6" />
+                  </div>
+                </div>
+                
+                <div className="instagram-cta">
                   <a 
                     href="https://instagram.com/lukefornieri" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="instagram-link"
+                    className="instagram-follow-button"
                   >
-                    View Instagram Profile
+                    Follow on Instagram
                   </a>
                 </div>
               </div>
