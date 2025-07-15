@@ -3,10 +3,7 @@
 import { useState, useEffect } from 'react';
 import { 
   fetchYouTubeVideos, 
-  fetchInstagramPosts,
-  fetchInstagramPostsAlternative,
-  FALLBACK_YOUTUBE_VIDEOS, 
-  FALLBACK_INSTAGRAM_POSTS 
+  FALLBACK_YOUTUBE_VIDEOS
 } from '../lib/api';
 
 interface MediumPost {
@@ -24,15 +21,6 @@ interface YouTubeVideo {
   channelTitle: string;
 }
 
-interface InstagramPost {
-  id: string;
-  caption: string;
-  mediaUrl: string;
-  permalink: string;
-  timestamp: string;
-  mediaType: string;
-}
-
 function formatDate(dateStr: string) {
   const date = new Date(dateStr);
   return date.toLocaleDateString("en-AU", {
@@ -45,7 +33,6 @@ function formatDate(dateStr: string) {
 export default function Social() {
   const [mediumPosts, setMediumPosts] = useState<MediumPost[]>([]);
   const [youtubeVideos, setYoutubeVideos] = useState<YouTubeVideo[]>([]);
-  const [instagramPosts, setInstagramPosts] = useState<InstagramPost[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -65,23 +52,11 @@ export default function Social() {
         const youtubeData = await fetchYouTubeVideos();
         setYoutubeVideos(youtubeData.length > 0 ? youtubeData : FALLBACK_YOUTUBE_VIDEOS);
 
-        // Fetch Instagram posts using scraping
-        let instagramData = await fetchInstagramPosts();
-        
-        // If primary scraping fails, try alternative method
-        if (instagramData.length === 0 || instagramData === FALLBACK_INSTAGRAM_POSTS) {
-          console.log('Trying alternative Instagram scraping method...');
-          instagramData = await fetchInstagramPostsAlternative();
-        }
-        
-        setInstagramPosts(instagramData.length > 0 ? instagramData : FALLBACK_INSTAGRAM_POSTS);
-
       } catch (err) {
         console.error(err);
         setError("Unable to load content at this time.");
         // Set fallback data
         setYoutubeVideos(FALLBACK_YOUTUBE_VIDEOS);
-        setInstagramPosts(FALLBACK_INSTAGRAM_POSTS);
       } finally {
         setIsLoading(false);
       }
@@ -97,28 +72,40 @@ export default function Social() {
         <div className="social-grid">
           <div className="social-column">
             <h3 className="social-subtitle">Instagram Feed</h3>
-            <div className="instagram-feed" role="region" aria-live="polite" aria-label="Instagram posts">
-              {isLoading && <p className="loading-message">Loading Instagram posts...</p>}
-              {error && <p className="error-message">{error}</p>}
-              {!isLoading && !error && instagramPosts.map((post, index) => (
-                <a 
-                  key={index} 
-                  href={post.permalink} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="instagram-post-card"
-                >
-                  <div className="instagram-image-container">
-                    <img src={post.mediaUrl} alt={post.caption || 'Instagram post'} />
-                  </div>
-                  <div className="instagram-caption">
-                    <p>{post.caption ? post.caption.substring(0, 100) + '...' : 'View on Instagram'}</p>
-                    <time className="instagram-date" dateTime={post.timestamp}>
-                      {formatDate(post.timestamp)}
-                    </time>
-                  </div>
-                </a>
-              ))}
+            <div className="instagram-widget-container">
+              {/* Instagram Profile Embed */}
+              <div className="instagram-embed">
+                <iframe
+                  src="https://www.instagram.com/lukefornieri/embed"
+                  className="instagram-widget"
+                  title="Luke Fornieri Instagram Feed"
+                  frameBorder="0"
+                  scrolling="no"
+                  allowTransparency={true}
+                  style={{ width: '100%', height: '400px' }}
+                  onError={() => {
+                    // Show fallback if iframe fails to load
+                    const fallback = document.querySelector('.instagram-fallback') as HTMLElement;
+                    if (fallback) fallback.style.display = 'block';
+                  }}
+                />
+              </div>
+              
+              {/* Fallback if embed doesn't work */}
+              <div className="instagram-fallback">
+                <div className="instagram-fallback-content">
+                  <h4>Follow @lukefornieri on Instagram</h4>
+                  <p>Get the latest updates on Melbourne's luxury real estate market!</p>
+                  <a 
+                    href="https://instagram.com/lukefornieri" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="instagram-link"
+                  >
+                    View Instagram Profile
+                  </a>
+                </div>
+              </div>
             </div>
             <p className="social-fallback">
               <a href="https://instagram.com/lukefornieri" target="_blank" rel="noopener noreferrer">View on Instagram</a>
