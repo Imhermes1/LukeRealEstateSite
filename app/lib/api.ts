@@ -7,11 +7,63 @@ export const YOUTUBE_CONFIG = {
   MAX_RESULTS: 3
 };
 
-// Instagram Configuration (using scraping)
+// Instagram Configuration (manual feed)
 export const INSTAGRAM_CONFIG = {
   USERNAME: 'lukefornieri',
   MAX_RESULTS: 6
 };
+
+// Manual Instagram feed - you can update this with your real posts
+export const MANUAL_INSTAGRAM_POSTS = [
+  {
+    id: "1",
+    caption: "Just closed another record-breaking sale in Melbourne's luxury market! 🏠✨ #RealEstate #Melbourne #LuxuryHomes",
+    mediaUrl: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=400&q=80",
+    permalink: "https://www.instagram.com/p/example1/",
+    timestamp: "2024-01-15T10:00:00Z",
+    mediaType: "IMAGE"
+  },
+  {
+    id: "2",
+    caption: "Beautiful sunset view from one of our premium listings. Melbourne's property market never disappoints! 🌅 #MelbourneRealEstate",
+    mediaUrl: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=400&q=80",
+    permalink: "https://www.instagram.com/p/example2/",
+    timestamp: "2024-01-12T10:00:00Z",
+    mediaType: "IMAGE"
+  },
+  {
+    id: "3",
+    caption: "Behind the scenes of our latest property shoot. Attention to detail is everything in luxury real estate! 📸 #LuxuryHomes",
+    mediaUrl: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=400&q=80",
+    permalink: "https://www.instagram.com/p/example3/",
+    timestamp: "2024-01-10T10:00:00Z",
+    mediaType: "IMAGE"
+  },
+  {
+    id: "4",
+    caption: "New listing alert! This stunning property in Melbourne's most prestigious neighborhood is now available. DM for private viewings! 🏡",
+    mediaUrl: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=400&q=80",
+    permalink: "https://www.instagram.com/p/example4/",
+    timestamp: "2024-01-08T10:00:00Z",
+    mediaType: "IMAGE"
+  },
+  {
+    id: "5",
+    caption: "Market insights: Melbourne's luxury property sector continues to show strong growth. Here's what buyers are looking for in 2024! 📊",
+    mediaUrl: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=400&q=80",
+    permalink: "https://www.instagram.com/p/example5/",
+    timestamp: "2024-01-05T10:00:00Z",
+    mediaType: "IMAGE"
+  },
+  {
+    id: "6",
+    caption: "Thank you to all our amazing clients who trusted us with their real estate journey in 2023! Here's to an even better 2024! 🎉",
+    mediaUrl: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=400&q=80",
+    permalink: "https://www.instagram.com/p/example6/",
+    timestamp: "2024-01-01T10:00:00Z",
+    mediaType: "IMAGE"
+  }
+];
 
 // Facebook App Configuration
 export const FACEBOOK_CONFIG = {
@@ -49,80 +101,18 @@ export async function fetchYouTubeVideos() {
   }
 }
 
-// Instagram Scraping Functions
+// Instagram Functions (using manual feed)
 export async function fetchInstagramPosts() {
-  try {
-    // Using a more reliable Instagram scraping approach
-    const response = await fetch(
-      `https://api.allorigins.win/get?url=${encodeURIComponent(`https://www.instagram.com/${INSTAGRAM_CONFIG.USERNAME}/`)}`
-    );
-
-    if (!response.ok) {
-      console.warn('Instagram scraping failed, using fallback data');
-      return FALLBACK_INSTAGRAM_POSTS;
-    }
-
-    const data = await response.json();
-    const html = data.contents;
-    
-    // Extract Instagram post URLs from the HTML
-    const postMatches = html.match(/https:\/\/www\.instagram\.com\/p\/[a-zA-Z0-9_-]+\//g) || [];
-    const uniquePosts = Array.from(new Set(postMatches)).slice(0, INSTAGRAM_CONFIG.MAX_RESULTS);
-    
-    if (uniquePosts.length > 0) {
-      return uniquePosts.map((permalink, index) => ({
-        id: `post_${index}`,
-        caption: `Latest Instagram post from @${INSTAGRAM_CONFIG.USERNAME}`,
-        mediaUrl: `https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=400&q=80&v=${index}`,
-        permalink: String(permalink),
-        timestamp: new Date(Date.now() - index * 86400000).toISOString(),
-        mediaType: 'IMAGE'
-      }));
-    }
-
-    return FALLBACK_INSTAGRAM_POSTS;
-  } catch (error) {
-    console.error('Error fetching Instagram posts:', error);
-    return FALLBACK_INSTAGRAM_POSTS;
-  }
+  // Return manual Instagram posts for now
+  // You can update MANUAL_INSTAGRAM_POSTS with your real posts
+  return MANUAL_INSTAGRAM_POSTS.slice(0, INSTAGRAM_CONFIG.MAX_RESULTS);
 }
 
 // Alternative Instagram scraping using a different proxy service
 export async function fetchInstagramPostsAlternative() {
-  try {
-    // Using a different CORS proxy service
-    const response = await fetch(
-      `https://cors-anywhere.herokuapp.com/https://www.instagram.com/${INSTAGRAM_CONFIG.USERNAME}/`,
-      {
-        headers: {
-          'Origin': 'https://lukefornieri.com',
-          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
-        }
-      }
-    );
-
-    if (!response.ok) {
-      return FALLBACK_INSTAGRAM_POSTS;
-    }
-
-    const html = await response.text();
-    
-    // Extract post URLs from the HTML
-    const postMatches = html.match(/https:\/\/www\.instagram\.com\/p\/[a-zA-Z0-9_-]+\//g) || [];
-    const uniquePosts = Array.from(new Set(postMatches)).slice(0, INSTAGRAM_CONFIG.MAX_RESULTS);
-    
-    return uniquePosts.map((permalink, index) => ({
-      id: `post_${index}`,
-      caption: `Instagram post from @${INSTAGRAM_CONFIG.USERNAME}`,
-      mediaUrl: `https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=400&q=80&v=${index}`,
-      permalink: String(permalink),
-      timestamp: new Date(Date.now() - index * 86400000).toISOString(),
-      mediaType: 'IMAGE'
-    }));
-  } catch (error) {
-    console.error('Error fetching Instagram posts (alternative):', error);
-    return FALLBACK_INSTAGRAM_POSTS;
-  }
+  // For now, return manual posts
+  // In the future, you can implement a more reliable scraping solution
+  return MANUAL_INSTAGRAM_POSTS.slice(0, INSTAGRAM_CONFIG.MAX_RESULTS);
 }
 
 // Fallback data for development
