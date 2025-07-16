@@ -3,7 +3,9 @@
 import { useState, useEffect } from 'react';
 import { 
   fetchYouTubeVideos, 
-  FALLBACK_YOUTUBE_VIDEOS
+  fetchInstagramPosts,
+  FALLBACK_YOUTUBE_VIDEOS,
+  FALLBACK_INSTAGRAM_POSTS
 } from '../lib/api';
 
 interface MediumPost {
@@ -22,13 +24,14 @@ interface YouTubeVideo {
 }
 
 interface InstagramPost {
-  id: number;
-  image: string;
+  id: string;
   caption: string;
+  mediaUrl: string;
+  permalink: string;
+  timestamp: string;
+  mediaType: string;
   likes: number;
   comments: number;
-  timestamp: string;
-  location?: string;
 }
 
 function formatDate(dateStr: string) {
@@ -40,65 +43,12 @@ function formatDate(dateStr: string) {
   });
 }
 
-// Instagram feed data
-const INSTAGRAM_POSTS: InstagramPost[] = [
-  {
-    id: 1,
-    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=400&h=400&q=80",
-    caption: "Just closed another record-breaking sale in Melbourne's luxury market! 🏠✨ #RealEstate #Melbourne #LuxuryHomes",
-    likes: 247,
-    comments: 18,
-    timestamp: "2 hours ago",
-    location: "Melbourne, Victoria"
-  },
-  {
-    id: 2,
-    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=400&h=400&q=80",
-    caption: "Beautiful sunset view from one of our premium listings. Melbourne's property market never disappoints! 🌅 #MelbourneRealEstate",
-    likes: 189,
-    comments: 12,
-    timestamp: "1 day ago",
-    location: "South Yarra, Melbourne"
-  },
-  {
-    id: 3,
-    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=400&h=400&q=80",
-    caption: "Luxury living at its finest. This stunning penthouse features panoramic city views and world-class amenities. #LuxuryRealEstate #Melbourne",
-    likes: 312,
-    comments: 24,
-    timestamp: "3 days ago",
-    location: "Melbourne CBD"
-  },
-  {
-    id: 4,
-    image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=400&h=400&q=80",
-    caption: "Chef's kitchen dreams come true! This gourmet kitchen is perfect for entertaining. #KitchenGoals #LuxuryHomes",
-    likes: 156,
-    comments: 8,
-    timestamp: "5 days ago"
-  },
-  {
-    id: 5,
-    image: "https://images.unsplash.com/photo-1600607687644-c7171b42498b?auto=format&fit=crop&w=400&h=400&q=80",
-    caption: "Private garden oasis in the heart of the city. Perfect for morning coffee or evening entertaining. #GardenDesign #MelbourneHomes",
-    likes: 203,
-    comments: 15,
-    timestamp: "1 week ago",
-    location: "Toorak, Melbourne"
-  },
-  {
-    id: 6,
-    image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=400&h=400&q=80",
-    caption: "Infinity pool with city skyline views. This is what luxury living is all about! 🏊‍♂️ #InfinityPool #LuxuryRealEstate",
-    likes: 278,
-    comments: 21,
-    timestamp: "1 week ago"
-  }
-];
+// Instagram posts will be fetched from API
 
 export default function Social() {
   const [mediumPosts, setMediumPosts] = useState<MediumPost[]>([]);
   const [youtubeVideos, setYoutubeVideos] = useState<YouTubeVideo[]>([]);
+  const [instagramPosts, setInstagramPosts] = useState<InstagramPost[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -118,11 +68,16 @@ export default function Social() {
         const youtubeData = await fetchYouTubeVideos();
         setYoutubeVideos(youtubeData.length > 0 ? youtubeData : FALLBACK_YOUTUBE_VIDEOS);
 
+        // Fetch Instagram posts
+        const instagramData = await fetchInstagramPosts();
+        setInstagramPosts(instagramData.length > 0 ? instagramData : FALLBACK_INSTAGRAM_POSTS);
+
       } catch (err) {
         console.error(err);
         setError("Unable to load content at this time.");
         // Set fallback data
         setYoutubeVideos(FALLBACK_YOUTUBE_VIDEOS);
+        setInstagramPosts(FALLBACK_INSTAGRAM_POSTS);
       } finally {
         setIsLoading(false);
       }
@@ -139,7 +94,7 @@ export default function Social() {
           <div className="social-column">
             <h3 className="social-subtitle">Instagram Feed</h3>
             <div className="instagram-feed">
-              {INSTAGRAM_POSTS.map((post) => (
+              {instagramPosts.map((post) => (
                 <div key={post.id} className="instagram-post">
                   <div className="instagram-post-header">
                     <div className="instagram-user">
@@ -150,14 +105,13 @@ export default function Social() {
                       />
                       <div className="instagram-user-info">
                         <span className="instagram-username">lukefornieri</span>
-                        {post.location && <span className="instagram-location">{post.location}</span>}
                       </div>
                     </div>
-                    <span className="instagram-timestamp">{post.timestamp}</span>
+                    <span className="instagram-timestamp">{formatDate(post.timestamp)}</span>
                   </div>
                   
                   <div className="instagram-image">
-                    <img src={post.image} alt="Instagram post" />
+                    <img src={post.mediaUrl} alt="Instagram post" />
                   </div>
                   
                   <div className="instagram-actions">
@@ -170,7 +124,7 @@ export default function Social() {
                   </div>
                   
                   <div className="instagram-likes">
-                    {post.likes} likes
+                    {post.likes > 0 ? `${post.likes} likes` : 'No likes yet'}
                   </div>
                   
                   <div className="instagram-caption">
