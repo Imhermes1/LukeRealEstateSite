@@ -130,7 +130,7 @@ export default function Social() {
                   </div>
                   
                   <div className="instagram-caption">
-                    <span className="instagram-username">lukefornieri</span> {post.caption}
+                    <span className="instagram-username">@lukefornieri</span> {post.caption}
                   </div>
                   
                   {post.comments > 0 && (
@@ -148,7 +148,7 @@ export default function Social() {
                   rel="noopener noreferrer"
                   className="instagram-follow-button"
                 >
-                  Follow on Instagram
+                  Follow @lukefornieri on Instagram
                 </a>
               </div>
             </div>

@@ -5,7 +5,7 @@ This guide will help you set up a dynamic Instagram feed using the official Inst
 ## Prerequisites
 
 1. **Instagram Business or Creator Account**
-   - Your Instagram account must be converted to Business or Creator type
+   - Your Instagram account (@lukefornieri) must be converted to Business or Creator type
    - Personal accounts are not supported for API access
 
 2. **Facebook Business Page**
@@ -37,7 +37,7 @@ This guide will help you set up a dynamic Instagram feed using the official Inst
 
 1. In Instagram Graph API settings
 2. Click "Connect Instagram Account"
-3. Authorize your Instagram Business account
+3. Authorize your Instagram Business account (@lukefornieri)
 4. Note your Instagram User ID
 
 ### 5. Generate Access Token

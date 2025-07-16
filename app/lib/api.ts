@@ -9,7 +9,7 @@ export const YOUTUBE_CONFIG = {
 
 // Instagram Configuration (Instagram Graph API)
 export const INSTAGRAM_CONFIG = {
-  USERNAME: 'lukefornieri',
+  USERNAME: 'lukefornieri', // instagram.com/lukefornieri
   MAX_RESULTS: 6,
   // Instagram Graph API - requires Business/Creator account
   ACCESS_TOKEN: process.env.NEXT_PUBLIC_INSTAGRAM_GRAPH_TOKEN || '',
