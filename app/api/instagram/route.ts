@@ -11,7 +11,7 @@ export async function GET() {
 
   try {
     const response = await fetch(
-      `https://graph.instagram.com/${USER_ID}/media?fields=id,media_url,thumbnail_url,permalink,caption,timestamp,media_type&access_token=${ACCESS_TOKEN}&limit=9`
+      `https://graph.instagram.com/${USER_ID}/media?fields=id,media_url,thumbnail_url,permalink,caption,timestamp,media_type&access_token=${ACCESS_TOKEN}&limit=6`
     );
 
     if (!response.ok) {
