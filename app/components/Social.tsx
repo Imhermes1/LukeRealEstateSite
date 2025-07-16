@@ -111,8 +111,9 @@ export default function Social() {
           <div className="social-column">
             <h3 className="social-subtitle">Instagram Feed</h3>
             
-            {/* Instagram Profile Header */}
-            <div className="instagram-profile-header">
+            <div className="ig-profile-section">
+              {/* Instagram Profile Header */}
+              <div className="instagram-profile-header">
               <div className="instagram-profile-info">
                 <img 
                   src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=80&h=80&q=80" 
@@ -170,6 +171,7 @@ export default function Social() {
               >
                 Follow @lukefornieri on Instagram
               </a>
+            </div>
             </div>
           </div>
           

@@ -1806,71 +1806,89 @@ a:focus-visible {
   border: none;
 }
 
-/* Instagram Profile Header */
+/* Instagram Profile Section - Glassmorphism Design */
+.ig-profile-section {
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 2.5rem 1rem;
+  background: #141a29;
+}
+
 .instagram-profile-header {
+  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 2rem;
+  padding: 2rem 1.2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.13);
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  padding: var(--space-16);
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  margin-bottom: var(--space-16);
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .instagram-profile-info {
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: var(--space-12);
+  text-align: center;
 }
 
 .instagram-profile-pic {
-  width: 60px;
-  height: 60px;
+  width: 82px;
+  height: 82px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid var(--color-primary);
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
 .instagram-profile-details {
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
+  gap: var(--space-4);
+  align-items: center;
 }
 
 .instagram-profile-name {
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-text);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: white;
   margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .instagram-profile-title {
   font-size: var(--font-size-sm);
-  color: var(--color-text-secondary);
+  color: rgba(255, 255, 255, 0.8);
   margin: 0;
 }
 
 .instagram-profile-bio {
   font-size: var(--font-size-sm);
-  color: var(--color-text);
+  color: rgba(255, 255, 255, 0.9);
   margin: 0;
   max-width: 300px;
+  line-height: 1.4;
 }
 
 .instagram-follow-btn-small {
-  background: var(--color-primary);
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
   color: white;
-  padding: var(--space-8) var(--space-16);
-  border-radius: var(--radius-base);
+  padding: var(--space-10) var(--space-20);
+  border-radius: var(--radius-lg);
   text-decoration: none;
   font-weight: var(--font-weight-semibold);
   font-size: var(--font-size-sm);
-  transition: background-color var(--duration-fast) var(--ease-standard);
+  transition: transform var(--duration-fast) var(--ease-standard), box-shadow var(--duration-fast) var(--ease-standard);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  margin-top: var(--space-8);
 }
 
 .instagram-follow-btn-small:hover {
-  background: var(--color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
   color: white;
 }
 
@@ -1961,17 +1979,20 @@ a:focus-visible {
   color: white;
 }
 
-/* Responsive adjustments for compact Instagram grid */
+/* Responsive adjustments for glassmorphism Instagram design */
 @media (max-width: 768px) {
-  .instagram-profile-header {
-    flex-direction: column;
-    gap: var(--space-12);
-    text-align: center;
+  .ig-profile-section {
+    padding: 2rem 0.5rem;
   }
   
-  .instagram-profile-info {
-    flex-direction: column;
-    text-align: center;
+  .instagram-profile-header {
+    padding: 1.5rem 1rem;
+    border-radius: 1.5rem;
+  }
+  
+  .instagram-profile-pic {
+    width: 70px;
+    height: 70px;
   }
   
   .instagram-grid {
