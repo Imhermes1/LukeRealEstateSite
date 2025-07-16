@@ -1826,8 +1826,8 @@ a:focus-visible {
 .instagram-feed {
   display: flex;
   flex-direction: column;
-  gap: var(--space-24);
-  max-height: 600px;
+  gap: var(--space-16);
+  max-height: 450px;
   overflow-y: auto;
   padding-right: var(--space-8);
 }
@@ -1849,7 +1849,7 @@ a:focus-visible {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--space-12) var(--space-16);
+  padding: var(--space-8) var(--space-12);
   border-bottom: 1px solid var(--color-border);
 }
 
@@ -1860,8 +1860,8 @@ a:focus-visible {
 }
 
 .instagram-avatar {
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   overflow: hidden;
   flex-shrink: 0;
@@ -1897,7 +1897,7 @@ a:focus-visible {
 
 .instagram-image {
   width: 100%;
-  aspect-ratio: 1;
+  aspect-ratio: 1.2;
   overflow: hidden;
 }
 
@@ -1916,7 +1916,7 @@ a:focus-visible {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--space-8) var(--space-16);
+  padding: var(--space-6) var(--space-12);
   border-bottom: 1px solid var(--color-border);
 }
 
@@ -1941,14 +1941,14 @@ a:focus-visible {
 }
 
 .instagram-likes {
-  padding: var(--space-8) var(--space-16) 0;
+  padding: var(--space-6) var(--space-12) 0;
   font-weight: var(--font-weight-semibold);
   font-size: var(--font-size-sm);
   color: var(--color-text);
 }
 
 .instagram-caption {
-  padding: var(--space-8) var(--space-16) 0;
+  padding: var(--space-6) var(--space-12) 0;
   font-size: var(--font-size-sm);
   line-height: var(--line-height-normal);
   color: var(--color-text);
@@ -1960,7 +1960,7 @@ a:focus-visible {
 }
 
 .instagram-comments {
-  padding: var(--space-4) var(--space-16) var(--space-8);
+  padding: var(--space-4) var(--space-12) var(--space-6);
   font-size: var(--font-size-xs);
   color: var(--color-text-secondary);
   cursor: pointer;
@@ -1971,7 +1971,7 @@ a:focus-visible {
 }
 
 .instagram-cta {
-  margin-top: var(--space-16);
+  margin-top: var(--space-12);
   text-align: center;
 }
 
@@ -1997,22 +1997,22 @@ a:focus-visible {
 /* Responsive adjustments for Instagram feed */
 @media (max-width: 768px) {
   .instagram-feed {
-    max-height: 500px;
-    gap: var(--space-16);
+    max-height: 400px;
+    gap: var(--space-12);
   }
   
   .instagram-post-header {
-    padding: var(--space-8) var(--space-12);
+    padding: var(--space-6) var(--space-10);
   }
   
   .instagram-actions {
-    padding: var(--space-6) var(--space-12);
+    padding: var(--space-4) var(--space-10);
   }
   
   .instagram-likes,
   .instagram-caption,
   .instagram-comments {
-    padding-left: var(--space-12);
-    padding-right: var(--space-12);
+    padding-left: var(--space-10);
+    padding-right: var(--space-10);
   }
 } 
