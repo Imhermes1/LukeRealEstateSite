@@ -121,26 +121,38 @@ export async function fetchYouTubeVideos() {
 // Instagram Functions (Instagram Graph API)
 export async function fetchInstagramPosts() {
   // Check if Instagram Graph API is configured
-  if (!INSTAGRAM_CONFIG.ACCESS_TOKEN) {
+  if (!INSTAGRAM_CONFIG.ACCESS_TOKEN || !INSTAGRAM_CONFIG.USER_ID) {
     console.log('Instagram Graph API not configured - using manual feed');
+    console.log('ACCESS_TOKEN:', INSTAGRAM_CONFIG.ACCESS_TOKEN ? 'Set' : 'Not set');
+    console.log('USER_ID:', INSTAGRAM_CONFIG.USER_ID ? 'Set' : 'Not set');
     return MANUAL_INSTAGRAM_POSTS.slice(0, INSTAGRAM_CONFIG.MAX_RESULTS);
   }
 
   try {
-    // Fetch Instagram media using the Graph API
+    console.log('🔍 Fetching Instagram posts for user ID:', INSTAGRAM_CONFIG.USER_ID);
+    
+    // Fetch Instagram media using the Graph API with user ID
     const response = await fetch(
-      `https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,permalink,thumbnail_url,timestamp,username&access_token=${INSTAGRAM_CONFIG.ACCESS_TOKEN}&limit=${INSTAGRAM_CONFIG.MAX_RESULTS}`
+      `https://graph.instagram.com/${INSTAGRAM_CONFIG.USER_ID}/media?fields=id,caption,media_type,media_url,permalink,thumbnail_url,timestamp,username&access_token=${INSTAGRAM_CONFIG.ACCESS_TOKEN}&limit=${INSTAGRAM_CONFIG.MAX_RESULTS}`
     );
 
+    console.log('🔍 Instagram API response status:', response.status);
+
     if (!response.ok) {
-      throw new Error(`Instagram Graph API request failed: ${response.status}`);
+      const errorText = await response.text();
+      console.error('🔍 Instagram API error response:', errorText);
+      throw new Error(`Instagram Graph API request failed: ${response.status} - ${errorText}`);
     }
 
     const data = await response.json();
+    console.log('🔍 Instagram API response data:', data);
     
     if (!data.data || !Array.isArray(data.data)) {
+      console.error('🔍 Invalid Instagram API response structure:', data);
       throw new Error('Invalid Instagram Graph API response');
     }
+
+    console.log('🔍 Found', data.data.length, 'Instagram posts');
 
     return data.data.map((post: any) => ({
       id: post.id,
