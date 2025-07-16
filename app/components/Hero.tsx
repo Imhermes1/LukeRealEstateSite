@@ -2,9 +2,16 @@ export default function Hero() {
   return (
     <section id="hero" className="hero-section" aria-label="Hero">
       <div className="hero-background">
-        <img 
-          src="/images/urlaubstracker-dW8dOC8r7O4-unsplash.jpg" 
-          alt="Melbourne city skyline during day time" 
+        <div 
+          style={{
+            width: '100%',
+            height: '100%',
+            backgroundColor: 'blue',
+            backgroundImage: 'url(/images/urlaubstracker-dW8dOC8r7O4-unsplash.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }}
           className="hero-image"
         />
         <div className="hero-overlay"></div>
