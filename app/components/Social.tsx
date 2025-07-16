@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 import { 
   fetchYouTubeVideos, 
-  fetchInstagramPosts,
   FALLBACK_YOUTUBE_VIDEOS,
   FALLBACK_INSTAGRAM_POSTS
 } from '../lib/api';
@@ -54,14 +53,7 @@ export default function Social() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  // Debug effect to monitor Instagram posts state
-  useEffect(() => {
-    console.log('🔍 Instagram posts state updated:', instagramPosts);
-    console.log('🔍 Number of posts in state:', instagramPosts.length);
-    if (instagramPosts.length > 0) {
-      console.log('🔍 First post in state:', instagramPosts[0]);
-    }
-  }, [instagramPosts]);
+
 
   useEffect(() => {
     async function fetchContent() {
@@ -79,22 +71,25 @@ export default function Social() {
         const youtubeData = await fetchYouTubeVideos();
         setYoutubeVideos(youtubeData.length > 0 ? youtubeData : FALLBACK_YOUTUBE_VIDEOS);
 
-        // Fetch Instagram posts with debugging
-        console.log('🔍 Starting Instagram API fetch...');
-        console.log('🔍 Environment variables check:');
-        console.log('🔍 NEXT_PUBLIC_INSTAGRAM_GRAPH_TOKEN:', process.env.NEXT_PUBLIC_INSTAGRAM_GRAPH_TOKEN ? 'Set' : 'Not set');
-        console.log('🔍 NEXT_PUBLIC_INSTAGRAM_USER_ID:', process.env.NEXT_PUBLIC_INSTAGRAM_USER_ID ? 'Set' : 'Not set');
-        
-        const instagramData = await fetchInstagramPosts();
-        console.log('🔍 Instagram API result:', instagramData);
-        console.log('🔍 First post details:', instagramData[0]);
-        console.log('🔍 Number of posts:', instagramData.length);
-        console.log('🔍 Using real data or fallback:', instagramData.length > 0 ? 'REAL DATA' : 'FALLBACK');
-        
-        const finalInstagramData = instagramData.length > 0 ? instagramData : FALLBACK_INSTAGRAM_POSTS;
-        console.log('🔍 Setting Instagram posts in state:', finalInstagramData);
-        console.log('🔍 First post mediaUrl:', finalInstagramData[0]?.mediaUrl);
-        setInstagramPosts(finalInstagramData);
+        // Fetch Instagram posts via API route
+        try {
+          const instagramResponse = await fetch('/api/instagram');
+          if (instagramResponse.ok) {
+            const instagramData = await instagramResponse.json();
+            if (instagramData.data && instagramData.data.length > 0) {
+              setInstagramPosts(instagramData.data);
+              console.log('✅ Instagram posts loaded from API:', instagramData.data.length);
+            } else {
+              setInstagramPosts(FALLBACK_INSTAGRAM_POSTS);
+              console.log('⚠️ Using fallback Instagram posts');
+            }
+          } else {
+            throw new Error('Instagram API request failed');
+          }
+        } catch (instagramError) {
+          console.error('❌ Instagram API error:', instagramError);
+          setInstagramPosts(FALLBACK_INSTAGRAM_POSTS);
+        }
 
       } catch (err) {
         console.error('❌ Error in fetchContent:', err);
@@ -154,14 +149,9 @@ export default function Social() {
                   <div className="instagram-grid-image">
                     <img 
                       src={post.mediaUrl} 
-                      alt="Instagram post" 
-                      onError={(e) => {
-                        console.error('🔍 Image failed to load:', post.mediaUrl);
-                        console.error('🔍 Post details:', post);
-                      }}
-                      onLoad={() => {
-                        console.log('🔍 Image loaded successfully:', post.mediaUrl);
-                      }}
+                      alt={post.caption ? `Instagram post: ${post.caption.substring(0, 50)}...` : "Instagram post"}
+                      loading="lazy"
+                      className="insta-img"
                     />
                     <div className="instagram-overlay">
                       <div className="instagram-stats">
