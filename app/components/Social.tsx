@@ -43,7 +43,8 @@ function formatDate(dateStr: string) {
   });
 }
 
-// Instagram posts will be fetched from API
+// Instagram posts - using manual feed since Instagram API is deprecated
+// You can update the MANUAL_INSTAGRAM_POSTS array in app/lib/api.ts with your real posts
 
 export default function Social() {
   const [mediumPosts, setMediumPosts] = useState<MediumPost[]>([]);

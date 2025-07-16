@@ -7,15 +7,16 @@ export const YOUTUBE_CONFIG = {
   MAX_RESULTS: 2
 };
 
-// Instagram Configuration
+// Instagram Configuration (no direct API available)
 export const INSTAGRAM_CONFIG = {
   USERNAME: 'lukefornieri',
   MAX_RESULTS: 6,
-  ACCESS_TOKEN: process.env.NEXT_PUBLIC_INSTAGRAM_ACCESS_TOKEN || '',
-  USER_ID: process.env.NEXT_PUBLIC_INSTAGRAM_USER_ID || ''
+  // Instagram Basic Display API is deprecated - using manual feed instead
+  USE_MANUAL_FEED: true
 };
 
-// Manual Instagram feed - you can update this with your real posts
+// Manual Instagram feed - UPDATE THESE WITH YOUR REAL POSTS
+// Since Instagram API is deprecated, you can manually update this array with your actual posts
 export const MANUAL_INSTAGRAM_POSTS = [
   {
     id: "1",
@@ -23,47 +24,59 @@ export const MANUAL_INSTAGRAM_POSTS = [
     mediaUrl: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=400&q=80",
     permalink: "https://www.instagram.com/p/example1/",
     timestamp: "2024-01-15T10:00:00Z",
-    mediaType: "IMAGE"
+    mediaType: "IMAGE",
+    likes: 247,
+    comments: 18
   },
   {
-    id: "2",
+    id: "2", 
     caption: "Beautiful sunset view from one of our premium listings. Melbourne's property market never disappoints! 🌅 #MelbourneRealEstate",
-    mediaUrl: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=400&q=80",
+    mediaUrl: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=400&q=80",
     permalink: "https://www.instagram.com/p/example2/",
     timestamp: "2024-01-12T10:00:00Z",
-    mediaType: "IMAGE"
+    mediaType: "IMAGE",
+    likes: 189,
+    comments: 12
   },
   {
     id: "3",
     caption: "Behind the scenes of our latest property shoot. Attention to detail is everything in luxury real estate! 📸 #LuxuryHomes",
-    mediaUrl: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=400&q=80",
+    mediaUrl: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=400&q=80",
     permalink: "https://www.instagram.com/p/example3/",
     timestamp: "2024-01-10T10:00:00Z",
-    mediaType: "IMAGE"
+    mediaType: "IMAGE",
+    likes: 312,
+    comments: 24
   },
   {
     id: "4",
     caption: "New listing alert! This stunning property in Melbourne's most prestigious neighbourhood is now available. DM for private viewings! 🏡",
-    mediaUrl: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=400&q=80",
+    mediaUrl: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=400&q=80",
     permalink: "https://www.instagram.com/p/example4/",
     timestamp: "2024-01-08T10:00:00Z",
-    mediaType: "IMAGE"
+    mediaType: "IMAGE",
+    likes: 156,
+    comments: 8
   },
   {
     id: "5",
     caption: "Market insights: Melbourne's luxury property sector continues to show strong growth. Here's what buyers are looking for in 2024! 📊",
-    mediaUrl: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=400&q=80",
+    mediaUrl: "https://images.unsplash.com/photo-1600607687644-c7171b42498b?auto=format&fit=crop&w=400&q=80",
     permalink: "https://www.instagram.com/p/example5/",
     timestamp: "2024-01-05T10:00:00Z",
-    mediaType: "IMAGE"
+    mediaType: "IMAGE",
+    likes: 203,
+    comments: 15
   },
   {
     id: "6",
     caption: "Thank you to all our amazing clients who trusted us with their real estate journey in 2023! Here's to an even better 2024! 🎉",
-    mediaUrl: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=400&q=80",
+    mediaUrl: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=400&q=80",
     permalink: "https://www.instagram.com/p/example6/",
     timestamp: "2024-01-01T10:00:00Z",
-    mediaType: "IMAGE"
+    mediaType: "IMAGE",
+    likes: 278,
+    comments: 21
   }
 ];
 
@@ -102,43 +115,18 @@ export async function fetchYouTubeVideos() {
   }
 }
 
-// Instagram Functions
+// Instagram Functions (no direct API available)
 export async function fetchInstagramPosts() {
-  if (!INSTAGRAM_CONFIG.ACCESS_TOKEN || !INSTAGRAM_CONFIG.USER_ID) {
-    console.warn('Instagram API credentials not configured, using fallback data');
-    return FALLBACK_INSTAGRAM_POSTS.slice(0, INSTAGRAM_CONFIG.MAX_RESULTS);
-  }
+  // Instagram Basic Display API is deprecated - using manual feed
+  console.log('Instagram API is deprecated - using manual feed');
+  
+  // Return manual Instagram posts that you can update with your real posts
+  return MANUAL_INSTAGRAM_POSTS.slice(0, INSTAGRAM_CONFIG.MAX_RESULTS);
+}
 
-  try {
-    // Fetch Instagram media using the Basic Display API
-    const response = await fetch(
-      `https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,permalink,thumbnail_url,timestamp&access_token=${INSTAGRAM_CONFIG.ACCESS_TOKEN}&limit=${INSTAGRAM_CONFIG.MAX_RESULTS}`
-    );
-
-    if (!response.ok) {
-      throw new Error('Instagram API request failed');
-    }
-
-    const data = await response.json();
-    
-    if (!data.data || !Array.isArray(data.data)) {
-      throw new Error('Invalid Instagram API response');
-    }
-
-    return data.data.map((post: any) => ({
-      id: post.id,
-      caption: post.caption || '',
-      mediaUrl: post.media_type === 'VIDEO' ? post.thumbnail_url : post.media_url,
-      permalink: post.permalink,
-      timestamp: post.timestamp,
-      mediaType: post.media_type,
-      likes: 0, // Instagram Basic Display API doesn't provide like counts
-      comments: 0 // Instagram Basic Display API doesn't provide comment counts
-    }));
-  } catch (error) {
-    console.error('Error fetching Instagram posts:', error);
-    return FALLBACK_INSTAGRAM_POSTS.slice(0, INSTAGRAM_CONFIG.MAX_RESULTS);
-  }
+// Alternative: Instagram embed widget approach
+export function getInstagramEmbedUrl(username: string) {
+  return `https://www.instagram.com/${username}/embed`;
 }
 
 // Alternative Instagram scraping using a different proxy service
