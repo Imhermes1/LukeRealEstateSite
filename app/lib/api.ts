@@ -7,12 +7,15 @@ export const YOUTUBE_CONFIG = {
   MAX_RESULTS: 2
 };
 
-// Instagram Configuration (no direct API available)
+// Instagram Configuration (Instagram Graph API)
 export const INSTAGRAM_CONFIG = {
   USERNAME: 'lukefornieri',
   MAX_RESULTS: 6,
-  // Instagram Basic Display API is deprecated - using manual feed instead
-  USE_MANUAL_FEED: true
+  // Instagram Graph API - requires Business/Creator account
+  ACCESS_TOKEN: process.env.NEXT_PUBLIC_INSTAGRAM_GRAPH_TOKEN || '',
+  USER_ID: process.env.NEXT_PUBLIC_INSTAGRAM_USER_ID || '',
+  // Fallback to manual feed if API not configured
+  USE_MANUAL_FEED: !process.env.NEXT_PUBLIC_INSTAGRAM_GRAPH_TOKEN
 };
 
 // Manual Instagram feed - UPDATE THESE WITH YOUR REAL POSTS
@@ -115,13 +118,45 @@ export async function fetchYouTubeVideos() {
   }
 }
 
-// Instagram Functions (no direct API available)
+// Instagram Functions (Instagram Graph API)
 export async function fetchInstagramPosts() {
-  // Instagram Basic Display API is deprecated - using manual feed
-  console.log('Instagram API is deprecated - using manual feed');
-  
-  // Return manual Instagram posts that you can update with your real posts
-  return MANUAL_INSTAGRAM_POSTS.slice(0, INSTAGRAM_CONFIG.MAX_RESULTS);
+  // Check if Instagram Graph API is configured
+  if (!INSTAGRAM_CONFIG.ACCESS_TOKEN) {
+    console.log('Instagram Graph API not configured - using manual feed');
+    return MANUAL_INSTAGRAM_POSTS.slice(0, INSTAGRAM_CONFIG.MAX_RESULTS);
+  }
+
+  try {
+    // Fetch Instagram media using the Graph API
+    const response = await fetch(
+      `https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,permalink,thumbnail_url,timestamp,username&access_token=${INSTAGRAM_CONFIG.ACCESS_TOKEN}&limit=${INSTAGRAM_CONFIG.MAX_RESULTS}`
+    );
+
+    if (!response.ok) {
+      throw new Error(`Instagram Graph API request failed: ${response.status}`);
+    }
+
+    const data = await response.json();
+    
+    if (!data.data || !Array.isArray(data.data)) {
+      throw new Error('Invalid Instagram Graph API response');
+    }
+
+    return data.data.map((post: any) => ({
+      id: post.id,
+      caption: post.caption || '',
+      mediaUrl: post.media_type === 'VIDEO' ? post.thumbnail_url : post.media_url,
+      permalink: post.permalink,
+      timestamp: post.timestamp,
+      mediaType: post.media_type,
+      likes: 0, // Instagram Graph API doesn't provide like counts in basic endpoint
+      comments: 0 // Instagram Graph API doesn't provide comment counts in basic endpoint
+    }));
+  } catch (error) {
+    console.error('Error fetching Instagram posts via Graph API:', error);
+    console.log('Falling back to manual feed');
+    return MANUAL_INSTAGRAM_POSTS.slice(0, INSTAGRAM_CONFIG.MAX_RESULTS);
+  }
 }
 
 // Alternative: Instagram embed widget approach

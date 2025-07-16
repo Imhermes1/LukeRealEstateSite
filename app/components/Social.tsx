@@ -43,8 +43,9 @@ function formatDate(dateStr: string) {
   });
 }
 
-// Instagram posts - using manual feed since Instagram API is deprecated
-// You can update the MANUAL_INSTAGRAM_POSTS array in app/lib/api.ts with your real posts
+// Instagram posts - using Instagram Graph API (requires Business/Creator account)
+// Falls back to manual feed if API not configured
+// To enable real API: Set NEXT_PUBLIC_INSTAGRAM_GRAPH_TOKEN in environment variables
 
 export default function Social() {
   const [mediumPosts, setMediumPosts] = useState<MediumPost[]>([]);
