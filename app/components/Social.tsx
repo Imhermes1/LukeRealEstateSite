@@ -144,7 +144,13 @@ export default function Social() {
 
             <div className="instagram-grid">
               {instagramPosts.map((post) => (
-                <div key={post.id} className="instagram-grid-item">
+                <a 
+                  key={post.id} 
+                  href={post.permalink} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="instagram-grid-item"
+                >
                   <div className="instagram-grid-image">
                     <img 
                       src={post.mediaUrl} 
@@ -157,29 +163,20 @@ export default function Social() {
                         console.log('🔍 Image loaded successfully:', post.mediaUrl);
                       }}
                     />
-                    <div className="instagram-grid-overlay">
-                      <div className="instagram-grid-stats">
-                        <span className="instagram-stat">❤️ {post.likes || 0}</span>
-                        <span className="instagram-stat">💬 {post.comments || 0}</span>
+                    <div className="instagram-overlay">
+                      <div className="instagram-stats">
+                        <div className="instagram-stat">
+                          <span className="stat-icon">❤️</span>
+                          <span className="stat-number">{post.likes || 0}</span>
+                        </div>
+                        <div className="instagram-stat">
+                          <span className="stat-icon">💬</span>
+                          <span className="stat-number">{post.comments || 0}</span>
+                        </div>
                       </div>
                     </div>
                   </div>
-                  <div className="instagram-post-info">
-                    <div className="instagram-post-stats">
-                      <span className="instagram-stat-item">❤️ {post.likes || 0}</span>
-                      <span className="instagram-stat-item">💬 {post.comments || 0}</span>
-                      <span className="instagram-post-date">{formatDate(post.timestamp)}</span>
-                    </div>
-                    <a 
-                      href={post.permalink} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="instagram-view-post"
-                    >
-                      View Post
-                    </a>
-                  </div>
-                </div>
+                </a>
               ))}
             </div>
             

@@ -1874,57 +1874,48 @@ a:focus-visible {
   color: white;
 }
 
-/* Instagram Grid Styles - Enhanced with Info */
+/* Clean Instagram Grid */
 .instagram-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-12);
+  gap: 4px;
   margin-bottom: var(--space-16);
-  max-width: 100%;
 }
 
 .instagram-grid-item {
   display: block;
   text-decoration: none;
   color: inherit;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
+  position: relative;
+  aspect-ratio: 1;
   overflow: hidden;
-  transition: transform var(--duration-fast) var(--ease-standard), box-shadow var(--duration-fast) var(--ease-standard);
-  box-shadow: var(--shadow-sm);
+  background: var(--color-surface);
+  transition: opacity var(--duration-fast) var(--ease-standard);
 }
 
 .instagram-grid-item:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  opacity: 0.9;
 }
 
 .instagram-grid-image {
   width: 100%;
-  height: 200px;
+  height: 100%;
   position: relative;
-  overflow: hidden;
 }
 
 .instagram-grid-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform var(--duration-normal) var(--ease-standard);
 }
 
-.instagram-grid-item:hover .instagram-grid-image img {
-  transform: scale(1.05);
-}
-
-.instagram-grid-overlay {
+.instagram-overlay {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1932,65 +1923,31 @@ a:focus-visible {
   transition: opacity var(--duration-fast) var(--ease-standard);
 }
 
-.instagram-grid-item:hover .instagram-grid-overlay {
+.instagram-grid-item:hover .instagram-overlay {
   opacity: 1;
 }
 
-.instagram-grid-stats {
+.instagram-stats {
   display: flex;
   align-items: center;
-  gap: var(--space-8);
-  color: white;
-  font-weight: var(--font-weight-semibold);
-  font-size: var(--font-size-sm);
+  gap: var(--space-16);
 }
 
 .instagram-stat {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
-}
-
-.instagram-post-info {
-  padding: var(--space-8) var(--space-12);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: var(--color-surface);
-  border-top: 1px solid var(--color-border);
-}
-
-.instagram-post-stats {
-  display: flex;
-  align-items: center;
-  gap: var(--space-8);
-  font-size: var(--font-size-xs);
-}
-
-.instagram-stat-item {
-  color: var(--color-text);
-  font-weight: var(--font-weight-medium);
-}
-
-.instagram-post-date {
-  color: var(--color-text-secondary);
-  font-size: var(--font-size-xs);
-}
-
-.instagram-view-post {
-  background: var(--color-primary);
+  gap: var(--space-4);
   color: white;
-  padding: var(--space-4) var(--space-8);
-  border-radius: var(--radius-base);
-  text-decoration: none;
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-semibold);
-  transition: background-color var(--duration-fast) var(--ease-standard);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-lg);
 }
 
-.instagram-view-post:hover {
-  background: var(--color-primary-dark);
-  color: white;
+.stat-icon {
+  font-size: var(--font-size-lg);
+}
+
+.stat-number {
+  font-size: var(--font-size-lg);
 }
 
 .instagram-cta {
@@ -2032,25 +1989,25 @@ a:focus-visible {
   
   .instagram-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-8);
-  }
-  
-  .instagram-grid-image {
-    height: 150px;
+    gap: 2px;
   }
 }
 
 @media (max-width: 480px) {
   .instagram-grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-8);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
   }
   
-  .instagram-grid-image {
-    height: 250px;
+  .instagram-stats {
+    gap: var(--space-12);
   }
   
-  .instagram-post-info {
-    padding: var(--space-6) var(--space-8);
+  .instagram-stat {
+    font-size: var(--font-size-base);
+  }
+  
+  .stat-icon, .stat-number {
+    font-size: var(--font-size-base);
   }
 } 
