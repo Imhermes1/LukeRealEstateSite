@@ -1379,7 +1379,7 @@ a:focus-visible {
 
 .footer {
   background-color: var(--color-primary);
-  color: white;
+  color: #CFBA97;
   padding: var(--space-32) 0 var(--space-16);
 }
 
@@ -1406,7 +1406,7 @@ a:focus-visible {
   margin: 0 0 var(--space-8) 0;
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-bold);
-  color: white;
+  color: #CFBA97;
 }
 
 .footer-brand-text p {
@@ -1432,7 +1432,7 @@ a:focus-visible {
 }
 
 .footer-links h4 {
-  color: white;
+  color: #CFBA97;
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-semibold);
   margin: 0 0 var(--space-12) 0;
@@ -1466,7 +1466,7 @@ a:focus-visible {
 }
 
 .footer-social h4 {
-  color: white;
+  color: #CFBA97;
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-semibold);
   margin: 0 0 var(--space-12) 0;
