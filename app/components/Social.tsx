@@ -117,15 +117,34 @@ export default function Social() {
         <div className="social-grid">
           <div className="social-column">
             <h3 className="social-subtitle">Instagram Feed</h3>
+            
+            {/* Instagram Profile Header */}
+            <div className="instagram-profile-header">
+              <div className="instagram-profile-info">
+                <img 
+                  src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=80&h=80&q=80" 
+                  alt="Luke Fornieri"
+                  className="instagram-profile-pic"
+                />
+                <div className="instagram-profile-details">
+                  <h4 className="instagram-profile-name">lukefornieri</h4>
+                  <p className="instagram-profile-title">Real Estate Agent • Melbourne</p>
+                  <p className="instagram-profile-bio">Luxury property specialist in Melbourne's premium market 🏠✨</p>
+                </div>
+              </div>
+              <a 
+                href="https://instagram.com/lukefornieri" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="instagram-follow-btn-small"
+              >
+                Follow
+              </a>
+            </div>
+
             <div className="instagram-grid">
               {instagramPosts.map((post) => (
-                <a 
-                  key={post.id} 
-                  href={post.permalink} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="instagram-grid-item"
-                >
+                <div key={post.id} className="instagram-grid-item">
                   <div className="instagram-grid-image">
                     <img 
                       src={post.mediaUrl} 
@@ -145,7 +164,22 @@ export default function Social() {
                       </div>
                     </div>
                   </div>
-                </a>
+                  <div className="instagram-post-info">
+                    <div className="instagram-post-stats">
+                      <span className="instagram-stat-item">❤️ {post.likes || 0}</span>
+                      <span className="instagram-stat-item">💬 {post.comments || 0}</span>
+                      <span className="instagram-post-date">{formatDate(post.timestamp)}</span>
+                    </div>
+                    <a 
+                      href={post.permalink} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="instagram-view-post"
+                    >
+                      View Post
+                    </a>
+                  </div>
+                </div>
               ))}
             </div>
             
