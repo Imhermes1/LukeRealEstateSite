@@ -2,8 +2,8 @@
 
 // YouTube API Configuration
 export const YOUTUBE_CONFIG = {
-  API_KEY: process.env.NEXT_PUBLIC_YOUTUBE_API_KEY || 'AIzaSyB91cyaxCpOEzolVTCDdzDwiJ3J76zH0nI',
-  CHANNEL_ID: process.env.NEXT_PUBLIC_YOUTUBE_CHANNEL_ID || 'UCc5ffGbB4crnOzNAHF5cjBA',
+  API_KEY: process.env.NEXT_PUBLIC_YOUTUBE_API_KEY || '',
+  CHANNEL_ID: process.env.NEXT_PUBLIC_YOUTUBE_CHANNEL_ID || '',
   MAX_RESULTS: 2
 };
 
@@ -65,10 +65,9 @@ export const MANUAL_INSTAGRAM_POSTS = [
   }
 ];
 
-// Facebook App Configuration
+// Facebook App Configuration - REMOVED SECRETS
 export const FACEBOOK_CONFIG = {
-  APP_ID: '1106621531387540',
-  APP_SECRET: '0a5b34dcb982c7183f5aaf1a6137ab92'
+  APP_ID: process.env.NEXT_PUBLIC_FACEBOOK_APP_ID || ''
 };
 
 // YouTube API Functions
