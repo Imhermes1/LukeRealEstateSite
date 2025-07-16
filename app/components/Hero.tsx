@@ -7,11 +7,11 @@ export default function Hero() {
             width: '100%',
             height: '100%',
             backgroundColor: 'blue',
-            backgroundImage: 'url(/images/urlaubstracker-dW8dOC8r7O4-unsplash.jpg)',
+            backgroundImage: 'url(/images/hero-optimized.jpg)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
-            filter: 'blur(10px)'
+            filter: 'blur(5px)'
           }}
           className="hero-image"
         />
