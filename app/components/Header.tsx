@@ -24,7 +24,6 @@ export default function Header() {
           />
           <div className="brand-text">
             <h1 className="brand-title">Luke Fornieri</h1>
-            <span className="brand-subtitle">MAK REALTY</span>
           </div>
         </div>
         <ul className={`nav-menu ${isMenuOpen ? 'nav-menu--open' : ''}`} role="menubar">

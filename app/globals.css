@@ -372,8 +372,8 @@ a:focus-visible {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background-color: var(--color-background);
-  border-bottom: 1px solid var(--color-border);
+  background-color: #151C2E;
+  border-bottom: 1px solid rgba(207, 186, 151, 0.3);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
@@ -381,10 +381,11 @@ a:focus-visible {
 .nav-container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding: var(--space-8) var(--space-8);
   max-width: var(--container-lg);
   margin: 0 auto;
+  gap: var(--space-32);
 }
 
 .nav-brand {
@@ -410,12 +411,13 @@ a:focus-visible {
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-bold);
   margin: 0;
+  color: #CFBA97;
 }
 
 .brand-subtitle {
   font-family: "Arial Nova", var(--font-family-base);
   font-size: var(--font-size-sm);
-  color: var(--color-text-secondary);
+  color: #CFBA97;
 }
 
 .nav-menu {
@@ -425,14 +427,14 @@ a:focus-visible {
 }
 
 .nav-menu a {
-  color: var(--color-text);
+  color: #CFBA97;
   text-decoration: none;
   font-weight: var(--font-weight-medium);
   transition: color var(--duration-fast) var(--ease-standard);
 }
 
 .nav-menu a:hover {
-  color: var(--color-primary);
+  color: white;
 }
 
 .nav-toggle {
@@ -447,7 +449,7 @@ a:focus-visible {
   display: block;
   width: 20px;
   height: 2px;
-  background-color: var(--color-text);
+  background-color: #CFBA97;
   margin: 4px 0;
   transition: var(--duration-fast) var(--ease-standard);
 }
@@ -1438,8 +1440,8 @@ a:focus-visible {
     top: 100%;
     left: 0;
     width: 100%;
-    background: var(--color-surface);
-    border-top: 1px solid var(--color-border);
+    background: #151C2E;
+    border-top: 1px solid rgba(207, 186, 151, 0.3);
     flex-direction: column;
     padding: var(--space-16);
     transform: translateY(-100%);
@@ -1454,6 +1456,11 @@ a:focus-visible {
     visibility: visible;
   }
 
+  .nav-container {
+    justify-content: space-between;
+    gap: 0;
+  }
+  
   .nav-toggle {
     display: block;
   }
