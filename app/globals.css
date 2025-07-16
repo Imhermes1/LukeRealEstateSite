@@ -874,9 +874,9 @@ a:focus-visible {
 }
 
 .logo-text {
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-text-secondary);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: #CFBA97;
   text-align: center;
 }
 
