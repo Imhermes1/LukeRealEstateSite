@@ -18,9 +18,9 @@ export default function Hero() {
         <div className="hero-glassmorphism"></div>
       </div>
       <div className="hero-content">
-        <h1 className="hero-title">Premium Real Estate Excellence</h1>
+        <h1 className="hero-title">Real Estate Excellence</h1>
         <p className="hero-subtitle">Your trusted partner in Melbourne's property market</p>
-        <a href="#contact" className="btn btn-primary">Contact Us Today!</a>
+        <a href="#contact" className="btn btn-primary btn-hero-large">Contact Us Today!</a>
       </div>
     </section>
   );

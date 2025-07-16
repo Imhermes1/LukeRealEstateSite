@@ -4,26 +4,17 @@ export default function MediaCoverage() {
       <div className="container">
         <h2 className="section-title">In the Media</h2>
         <div className="media-logos">
-          <a href="https://www.realestate.com.au/property/5-princely-terrace-templestowe" target="_blank" aria-label="Featured on realestate.com.au">
-            <div className="media-logo-placeholder">
-              <span className="logo-text">realestate.com.au</span>
-            </div>
-          </a>
-          <a href="https://www.domain.com.au/9-manton-street-richmond-vic-3121" target="_blank" aria-label="Featured on Domain">
-            <div className="media-logo-placeholder">
-              <span className="logo-text">Domain</span>
-            </div>
-          </a>
-          <a href="https://www.heraldsun.com.au/property" target="_blank" aria-label="Featured in Herald Sun">
+          <a href="https://www.realestate.com.au/news/templestowe-europeaninspired-mansion-dubbed-a-mini-museum-with-3m-marble-and-imported-fountain/" target="_blank" aria-label="5 Princely Tce Herald Sun Feature">
             <div className="media-logo-placeholder">
               <span className="logo-text">Herald Sun</span>
             </div>
           </a>
-          <a href="https://www.theage.com.au/property" target="_blank" aria-label="Featured in The Age">
+          <a href="https://www.realestate.com.au/news/richmond-house-similar-to-a-wog-boy-setpiece-will-get-you-saying-opa/" target="_blank" aria-label="9 Manton St Herald Sun Feature">
             <div className="media-logo-placeholder">
-              <span className="logo-text">The Age</span>
+              <span className="logo-text">Herald Sun</span>
             </div>
           </a>
+
         </div>
       </div>
     </section>

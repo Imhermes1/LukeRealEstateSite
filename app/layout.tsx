@@ -26,7 +26,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "RealEstateAgent",
               "name": "Luke Fornieri",
-              "url": "https://lukefornieri.com",
+              "url": "https://lukefornieri.com.au",
               "sameAs": [
                 "https://www.instagram.com/lukefornieri",
                 "https://medium.com/@lukeforn",

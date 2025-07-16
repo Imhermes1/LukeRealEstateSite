@@ -384,6 +384,20 @@ a:focus-visible {
   width: 100%;
 }
 
+.btn-hero-large {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  padding: var(--space-16) var(--space-32);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 14px rgba(21, 28, 46, 0.4);
+  transition: all var(--duration-normal) var(--ease-standard);
+}
+
+.btn-hero-large:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(21, 28, 46, 0.5);
+}
+
 .sticky-header {
   position: sticky;
   top: 0;
@@ -1197,6 +1211,28 @@ a:focus-visible {
 .form-help {
   font-size: var(--font-size-sm);
   color: var(--color-text-secondary);
+}
+
+.form-success {
+  padding: var(--space-12);
+  background-color: rgba(5, 150, 105, 0.1);
+  border: 1px solid rgba(5, 150, 105, 0.3);
+  border-radius: var(--radius-base);
+  color: var(--color-success);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  margin-bottom: var(--space-16);
+}
+
+.form-error {
+  padding: var(--space-12);
+  background-color: rgba(220, 38, 38, 0.1);
+  border: 1px solid rgba(220, 38, 38, 0.3);
+  border-radius: var(--radius-base);
+  color: var(--color-error);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  margin-bottom: var(--space-16);
 }
 
 .contact-method-fieldset {
