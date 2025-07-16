@@ -1,6 +1,6 @@
 export default function Services() {
   return (
-    <section id="services" className="section bg-light" aria-label="Services">
+    <section id="services" className="section" aria-label="Services">
       <div className="container">
         <h2 className="section-title">Our Services</h2>
         <div className="services-grid">

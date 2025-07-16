@@ -1,6 +1,6 @@
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="section bg-light" aria-label="Testimonials">
+    <section id="testimonials" className="section" aria-label="Testimonials">
       <div className="container">
         <h2 className="section-title">What Clients Say</h2>
         <div className="testimonials-grid">
