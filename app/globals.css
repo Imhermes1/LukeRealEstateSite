@@ -1378,7 +1378,7 @@ a:focus-visible {
 }
 
 .footer {
-  background-color: var(--color-primary);
+  background-color: #151C2E;
   color: #CFBA97;
   padding: var(--space-32) 0 var(--space-16);
 }
@@ -1411,7 +1411,7 @@ a:focus-visible {
 
 .footer-brand-text p {
   margin: 0;
-  color: var(--color-secondary);
+  color: #CFBA97;
   line-height: var(--line-height-normal);
 }
 
@@ -1421,7 +1421,7 @@ a:focus-visible {
 }
 
 .footer-brand p {
-  color: var(--color-text-secondary);
+  color: #CFBA97;
   margin: 0;
 }
 
@@ -1446,11 +1446,11 @@ a:focus-visible {
 
 .footer-links li {
   margin-bottom: var(--space-6);
-  color: var(--color-secondary);
+  color: #CFBA97;
 }
 
 .footer-links a {
-  color: var(--color-secondary);
+  color: #CFBA97;
   text-decoration: none;
   transition: color var(--duration-fast) var(--ease-standard);
 }
@@ -1478,7 +1478,7 @@ a:focus-visible {
 }
 
 .footer-social a {
-  color: var(--color-secondary);
+  color: #CFBA97;
   font-size: var(--font-size-xl);
   transition: color var(--duration-fast) var(--ease-standard);
 }
@@ -1493,7 +1493,7 @@ a:focus-visible {
   align-items: center;
   padding-top: var(--space-16);
   border-top: 1px solid rgba(207, 186, 151, 0.3);
-  color: var(--color-secondary);
+  color: #CFBA97;
   font-size: var(--font-size-sm);
 }
 
@@ -1503,7 +1503,7 @@ a:focus-visible {
 }
 
 .footer-legal a {
-  color: var(--color-secondary);
+  color: #CFBA97;
   text-decoration: none;
   transition: color var(--duration-fast) var(--ease-standard);
 }
