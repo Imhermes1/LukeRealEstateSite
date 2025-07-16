@@ -19,8 +19,8 @@ export default function Hero() {
       </div>
       <div className="hero-content">
         <h1 className="hero-title">Premium Real Estate Excellence</h1>
-        <p className="hero-subtitle">Your trusted partner in Melbourne's luxury property market</p>
-        <a href="#contact" className="btn btn-primary">Get Started Today</a>
+        <p className="hero-subtitle">Your trusted partner in Melbourne's property market</p>
+        <a href="#contact" className="btn btn-primary">Contact Us Today!</a>
       </div>
     </section>
   );

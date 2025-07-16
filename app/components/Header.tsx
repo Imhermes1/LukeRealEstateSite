@@ -17,8 +17,15 @@ export default function Header() {
     <header className="sticky-header" role="banner">
       <nav className="nav-container" aria-label="Main navigation">
         <div className="nav-brand">
-          <h1 className="brand-title">Luke Fornieri</h1>
-          <span className="brand-subtitle">MAK REALTY</span>
+          <img 
+            src="/images/PNG-03 (1) Background Removed.png" 
+            alt="MAK REALTY Logo" 
+            className="brand-logo"
+          />
+          <div className="brand-text">
+            <h1 className="brand-title">Luke Fornieri</h1>
+            <span className="brand-subtitle">MAK REALTY</span>
+          </div>
         </div>
         <ul className={`nav-menu ${isMenuOpen ? 'nav-menu--open' : ''}`} role="menubar">
           <li role="none"><a href="#hero" role="menuitem" onClick={closeMenu}>Home</a></li>

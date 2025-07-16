@@ -5,12 +5,12 @@ export default function Services() {
         <h2 className="section-title">Our Services</h2>
         <div className="services-grid">
           <div className="service-card">
-            <h3 className="service-title">Luxury Sales</h3>
-            <p className="service-description">Specialised in high-end residential properties with personalised marketing strategies.</p>
+            <h3 className="service-title">Property Sales</h3>
+            <p className="service-description">Specialised in Premium & High End residential properties with personalised marketing strategies. We can sell it all</p>
           </div>
           <div className="service-card">
-            <h3 className="service-title">Investment Advisory</h3>
-            <p className="service-description">Expert guidance on property investments with market analysis and portfolio optimisation.</p>
+          <h3 className="service-title">Investment & Buyer Advisory</h3>
+          <p className="service-description">Strategic guidance for investors and buyers, including market analysis, portfolio planning, and access to exclusive off-market opportunities.</p>
           </div>
           <div className="service-card">
             <h3 className="service-title">Property Management</h3>
@@ -19,8 +19,8 @@ export default function Services() {
         </div>
         
         <div className="services-video-section">
-          <h3 className="video-title">Auction Success in Mordialloc</h3>
-          <p className="video-description">Watch Luke Fornieri and MAK Realty achieve outstanding results at this Mordialloc auction, selling $150,000 above reserve.</p>
+          <h3 className="video-title">Auction Campaigns</h3>
+          <p className="video-description">Tailored auction campaigns designed to maximise competition and deliver premium results.</p>
           <div className="video-container">
             <iframe
               src="https://www.youtube.com/embed/z6rLeOVZcpU?autoplay=1&mute=1"
@@ -32,9 +32,8 @@ export default function Services() {
             ></iframe>
           </div>
           <div className="video-subtitle">
-            <p><strong>MAK Realty Auction Campaign, Lead Agent:Luke Fornieri</strong></p>
-            <p>Auctioneer: Claude Makdesi on 1/4 Chute Street Mordialloc</p>
-            <p>Selling $150,000 Above the Vendors Reserve price</p>
+            <p><strong>MAK Realty Auction Campaign. Lead Agent: Luke Fornieri Auctioneer: Claude Makdesi</strong></p>
+            <p>Address: 1/4 Chute Street Mordialloc. Selling $150,000 Above the Vendors Reserve price</p>
           </div>
         </div>
       </div>
