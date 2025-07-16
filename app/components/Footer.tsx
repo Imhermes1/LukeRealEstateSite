@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="footer-content">
           <div className="footer-brand">
             <img 
-              src="/images/PNG-03.jpeg" 
+              src="/images/vector file-03.jpg" 
               alt="MAK REALTY Logo" 
               className="footer-logo"
             />

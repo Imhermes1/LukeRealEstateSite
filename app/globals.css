@@ -414,6 +414,19 @@ a:focus-visible {
   height: 40px;
   width: auto;
   object-fit: contain;
+  mix-blend-mode: multiply;
+  filter: brightness(0) saturate(100%) invert(0) sepia(0) saturate(0) hue-rotate(0deg) brightness(1) contrast(1);
+  background: transparent;
+}
+
+/* Alternative logo styling for better background removal */
+.brand-logo-alt {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+  mix-blend-mode: darken;
+  filter: contrast(1.2) brightness(1.1);
+  background: transparent;
 }
 
 .brand-text {
@@ -1336,7 +1349,8 @@ a:focus-visible {
   height: 50px;
   width: auto;
   object-fit: contain;
-  filter: brightness(0) invert(1);
+  mix-blend-mode: multiply;
+  filter: brightness(0) saturate(100%) invert(1) sepia(0) saturate(0) hue-rotate(0deg) brightness(1) contrast(1);
 }
 
 .footer-brand-text h3 {
