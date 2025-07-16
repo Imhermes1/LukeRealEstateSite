@@ -154,15 +154,8 @@ export default function Social() {
                       className="insta-img"
                     />
                     <div className="instagram-overlay">
-                      <div className="instagram-stats">
-                        <div className="instagram-stat">
-                          <span className="stat-icon">❤️</span>
-                          <span className="stat-number">{post.likes || 0}</span>
-                        </div>
-                        <div className="instagram-stat">
-                          <span className="stat-icon">💬</span>
-                          <span className="stat-number">{post.comments || 0}</span>
-                        </div>
+                      <div className="instagram-view-icon">
+                        👁️
                       </div>
                     </div>
                   </div>

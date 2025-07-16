@@ -1931,28 +1931,10 @@ a:focus-visible {
   opacity: 1;
 }
 
-.instagram-stats {
-  display: flex;
-  align-items: center;
-  gap: var(--space-8);
-}
-
-.instagram-stat {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
+.instagram-view-icon {
+  font-size: var(--font-size-lg);
   color: white;
-  font-weight: var(--font-weight-semibold);
-  font-size: var(--font-size-xs);
-}
-
-.stat-icon {
-  font-size: var(--font-size-sm);
-}
-
-.stat-number {
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-semibold);
+  opacity: 0.9;
 }
 
 .instagram-cta {
@@ -2004,19 +1986,7 @@ a:focus-visible {
     gap: 2px;
   }
   
-  .instagram-stats {
-    gap: var(--space-4);
-  }
-  
-  .instagram-stat {
-    font-size: 10px;
-  }
-  
-  .stat-icon {
-    font-size: 12px;
-  }
-  
-  .stat-number {
-    font-size: 10px;
+  .instagram-view-icon {
+    font-size: var(--font-size-base);
   }
 } 

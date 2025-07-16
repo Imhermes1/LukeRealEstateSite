@@ -33,9 +33,7 @@ export async function GET() {
       mediaUrl: post.media_type === 'VIDEO' ? post.thumbnail_url : post.media_url,
       permalink: post.permalink,
       timestamp: post.timestamp,
-      mediaType: post.media_type,
-      likes: 0, // Graph API doesn't provide like counts in basic endpoint
-      comments: 0 // Graph API doesn't provide comment counts in basic endpoint
+      mediaType: post.media_type
     }));
 
     return NextResponse.json({ data: posts });

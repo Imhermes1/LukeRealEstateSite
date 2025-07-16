@@ -208,9 +208,7 @@ export const FALLBACK_INSTAGRAM_POSTS = [
     mediaUrl: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=400&q=80",
     permalink: "https://instagram.com/p/example1",
     timestamp: "2024-01-15T10:00:00Z",
-    mediaType: "IMAGE",
-    likes: 247,
-    comments: 18
+    mediaType: "IMAGE"
   },
   {
     id: "2",
@@ -218,9 +216,7 @@ export const FALLBACK_INSTAGRAM_POSTS = [
     mediaUrl: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=400&q=80",
     permalink: "https://instagram.com/p/example2",
     timestamp: "2024-01-12T10:00:00Z",
-    mediaType: "IMAGE",
-    likes: 189,
-    comments: 12
+    mediaType: "IMAGE"
   },
   {
     id: "3",
@@ -228,8 +224,30 @@ export const FALLBACK_INSTAGRAM_POSTS = [
     mediaUrl: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=400&q=80",
     permalink: "https://instagram.com/p/example3",
     timestamp: "2024-01-10T10:00:00Z",
-    mediaType: "IMAGE",
-    likes: 312,
-    comments: 24
+    mediaType: "IMAGE"
+  },
+  {
+    id: "4",
+    caption: "New listing alert! This stunning property in Melbourne's most prestigious neighbourhood is now available.",
+    mediaUrl: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=400&q=80",
+    permalink: "https://instagram.com/p/example4",
+    timestamp: "2024-01-08T10:00:00Z",
+    mediaType: "IMAGE"
+  },
+  {
+    id: "5",
+    caption: "Market insights: Melbourne's luxury property sector continues to show strong growth.",
+    mediaUrl: "https://images.unsplash.com/photo-1600607687644-c7171b42498b?auto=format&fit=crop&w=400&q=80",
+    permalink: "https://instagram.com/p/example5",
+    timestamp: "2024-01-05T10:00:00Z",
+    mediaType: "IMAGE"
+  },
+  {
+    id: "6",
+    caption: "Thank you to all our amazing clients who trusted us with their real estate journey!",
+    mediaUrl: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=400&q=80",
+    permalink: "https://instagram.com/p/example6",
+    timestamp: "2024-01-01T10:00:00Z",
+    mediaType: "IMAGE"
   }
 ]; 
