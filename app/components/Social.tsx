@@ -54,6 +54,15 @@ export default function Social() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
+  // Debug effect to monitor Instagram posts state
+  useEffect(() => {
+    console.log('🔍 Instagram posts state updated:', instagramPosts);
+    console.log('🔍 Number of posts in state:', instagramPosts.length);
+    if (instagramPosts.length > 0) {
+      console.log('🔍 First post in state:', instagramPosts[0]);
+    }
+  }, [instagramPosts]);
+
   useEffect(() => {
     async function fetchContent() {
       try {
@@ -82,7 +91,10 @@ export default function Social() {
         console.log('🔍 Number of posts:', instagramData.length);
         console.log('🔍 Using real data or fallback:', instagramData.length > 0 ? 'REAL DATA' : 'FALLBACK');
         
-        setInstagramPosts(instagramData.length > 0 ? instagramData : FALLBACK_INSTAGRAM_POSTS);
+        const finalInstagramData = instagramData.length > 0 ? instagramData : FALLBACK_INSTAGRAM_POSTS;
+        console.log('🔍 Setting Instagram posts in state:', finalInstagramData);
+        console.log('🔍 First post mediaUrl:', finalInstagramData[0]?.mediaUrl);
+        setInstagramPosts(finalInstagramData);
 
       } catch (err) {
         console.error('❌ Error in fetchContent:', err);
@@ -123,7 +135,17 @@ export default function Social() {
                   </div>
                   
                   <div className="instagram-image">
-                    <img src={post.mediaUrl} alt="Instagram post" />
+                    <img 
+                      src={post.mediaUrl} 
+                      alt="Instagram post" 
+                      onError={(e) => {
+                        console.error('🔍 Image failed to load:', post.mediaUrl);
+                        console.error('🔍 Post details:', post);
+                      }}
+                      onLoad={() => {
+                        console.log('🔍 Image loaded successfully:', post.mediaUrl);
+                      }}
+                    />
                   </div>
                   
                   <div className="instagram-actions">
