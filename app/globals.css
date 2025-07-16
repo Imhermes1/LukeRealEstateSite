@@ -414,8 +414,6 @@ a:focus-visible {
   height: 40px;
   width: auto;
   object-fit: contain;
-  mix-blend-mode: multiply;
-  filter: brightness(0) saturate(100%) invert(0) sepia(0) saturate(0) hue-rotate(0deg) brightness(1) contrast(1);
   background: transparent;
 }
 
@@ -1365,8 +1363,6 @@ a:focus-visible {
   height: 50px;
   width: auto;
   object-fit: contain;
-  mix-blend-mode: multiply;
-  filter: brightness(0) saturate(100%) invert(1) sepia(0) saturate(0) hue-rotate(0deg) brightness(1) contrast(1);
 }
 
 .footer-brand-text h3 {
