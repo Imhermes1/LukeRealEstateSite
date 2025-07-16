@@ -10,8 +10,7 @@ export default function Hero() {
             backgroundImage: 'url(/images/hero-optimized.jpg)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-            filter: 'blur(5px)'
+            backgroundRepeat: 'no-repeat'
           }}
           className="hero-image"
         />
