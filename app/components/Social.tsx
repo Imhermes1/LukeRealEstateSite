@@ -29,8 +29,6 @@ interface InstagramPost {
   permalink: string;
   timestamp: string;
   mediaType: string;
-  likes: number;
-  comments: number;
 }
 
 function formatDate(dateStr: string) {
