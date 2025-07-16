@@ -59,6 +59,7 @@ export default function Footer() {
           <p>© 2024 Luke Fornieri Real Estate. All rights reserved.</p>
           <div className="footer-legal">
             <Link href="/privacy">Privacy Policy</Link>
+            <Link href="/deletion">Data Deletion</Link>
             <a href="#contact">Terms of Service</a>
           </div>
         </div>
