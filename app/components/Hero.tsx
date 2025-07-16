@@ -15,6 +15,7 @@ export default function Hero() {
           className="hero-image"
         />
         <div className="hero-overlay"></div>
+        <div className="hero-glassmorphism"></div>
       </div>
       <div className="hero-content">
         <h1 className="hero-title">Premium Real Estate Excellence</h1>
