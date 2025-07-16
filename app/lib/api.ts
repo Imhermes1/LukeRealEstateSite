@@ -41,7 +41,7 @@ export const MANUAL_INSTAGRAM_POSTS = [
   },
   {
     id: "4",
-    caption: "New listing alert! This stunning property in Melbourne's most prestigious neighborhood is now available. DM for private viewings! 🏡",
+    caption: "New listing alert! This stunning property in Melbourne's most prestigious neighbourhood is now available. DM for private viewings! 🏡",
     mediaUrl: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=400&q=80",
     permalink: "https://www.instagram.com/p/example4/",
     timestamp: "2024-01-08T10:00:00Z",

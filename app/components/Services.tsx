@@ -6,11 +6,11 @@ export default function Services() {
         <div className="services-grid">
           <div className="service-card">
             <h3 className="service-title">Luxury Sales</h3>
-            <p className="service-description">Specialized in high-end residential properties with personalized marketing strategies.</p>
+            <p className="service-description">Specialised in high-end residential properties with personalised marketing strategies.</p>
           </div>
           <div className="service-card">
             <h3 className="service-title">Investment Advisory</h3>
-            <p className="service-description">Expert guidance on property investments with market analysis and portfolio optimization.</p>
+            <p className="service-description">Expert guidance on property investments with market analysis and portfolio optimisation.</p>
           </div>
           <div className="service-card">
             <h3 className="service-title">Property Management</h3>
@@ -19,8 +19,8 @@ export default function Services() {
         </div>
         
         <div className="services-video-section">
-          <h3 className="video-title">Market Insights & Expertise</h3>
-          <p className="video-description">Watch Luke share insights on Melbourne's luxury property market and what makes MAK REALTY the preferred choice for discerning clients.</p>
+          <h3 className="video-title">Auction Success Story - Mordialloc Property</h3>
+          <p className="video-description">Watch Luke Fornieri and MAK Realty achieve outstanding results at this Mordialloc auction, selling $150,000 above reserve.</p>
           <div className="video-container">
             <iframe
               src="https://www.youtube.com/embed/z6rLeOVZcpU?autoplay=1&mute=1"
