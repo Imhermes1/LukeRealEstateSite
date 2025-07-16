@@ -2,8 +2,8 @@
   /* Colors - Updated with new palette */
   --color-background: #FFFFFF;
   --color-surface: #FFFFFF;
-  --color-text: #151C2E;
-  --color-text-secondary: #6B7280;
+  --color-text: #CFBA97;
+  --color-text-secondary: #CFBA97;
   --color-primary: #151C2E;
   --color-primary-hover: #1F2937;
   --color-primary-active: #111827;
@@ -185,10 +185,10 @@
 }
 
 [data-color-scheme="light"] {
-  --color-background: #FFFFFF;
-  --color-surface: #FFFFFF;
-  --color-text: #151C2E;
-  --color-text-secondary: #6B7280;
+  --color-background: #151C2E;
+  --color-surface: #1F2937;
+  --color-text: #CFBA97;
+  --color-text-secondary: #CFBA97;
   --color-primary: #151C2E;
   --color-primary-hover: #1F2937;
   --color-primary-active: #111827;
@@ -249,7 +249,7 @@ body {
   font-size: var(--font-size-base);
   line-height: var(--line-height-normal);
   color: var(--color-text);
-  background-color: var(--color-background);
+  background-color: #151C2E;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

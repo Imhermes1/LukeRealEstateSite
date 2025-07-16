@@ -18,7 +18,7 @@ export default function Header() {
       <nav className="nav-container" aria-label="Main navigation">
         <div className="nav-brand">
           <img 
-            src="/images/PNG-03 (1) Background Removed.png" 
+            src="/images/PNG-03.png" 
             alt="MAK REALTY Logo" 
             className="brand-logo"
           />
