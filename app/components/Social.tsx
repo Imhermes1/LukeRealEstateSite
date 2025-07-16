@@ -78,6 +78,9 @@ export default function Social() {
         
         const instagramData = await fetchInstagramPosts();
         console.log('🔍 Instagram API result:', instagramData);
+        console.log('🔍 First post details:', instagramData[0]);
+        console.log('🔍 Number of posts:', instagramData.length);
+        console.log('🔍 Using real data or fallback:', instagramData.length > 0 ? 'REAL DATA' : 'FALLBACK');
         
         setInstagramPosts(instagramData.length > 0 ? instagramData : FALLBACK_INSTAGRAM_POSTS);
 
