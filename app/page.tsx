@@ -22,14 +22,14 @@ export default function Home() {
       address: "5 Princely Terrace, Templestowe",
       status: "SOLD",
       price: 6250000,
-      image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
+      image: "/images/0361.01 5 Princely Tce, Templestowe-3.jpg",
       details: "Grand hillside residence with sweeping views, resort-style pool and refined European interiors."
     },
     {
       address: "9 Manton Street, Richmond",
       status: "SOLD",
       price: 2400000,
-      image: "https://images.unsplash.com/photo-1616486333466-3e2916a8e30d?auto=format&fit=crop&w=1200&q=80",
+      image: "/images/LowRes_2k_17.jpg",
       details: "Architect-designed contemporary terrace blending heritage façade with light-filled modern living zones."
     }
   ];
