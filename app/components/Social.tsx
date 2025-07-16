@@ -70,12 +70,19 @@ export default function Social() {
         const youtubeData = await fetchYouTubeVideos();
         setYoutubeVideos(youtubeData.length > 0 ? youtubeData : FALLBACK_YOUTUBE_VIDEOS);
 
-        // Fetch Instagram posts
+        // Fetch Instagram posts with debugging
+        console.log('🔍 Starting Instagram API fetch...');
+        console.log('🔍 Environment variables check:');
+        console.log('🔍 NEXT_PUBLIC_INSTAGRAM_GRAPH_TOKEN:', process.env.NEXT_PUBLIC_INSTAGRAM_GRAPH_TOKEN ? 'Set' : 'Not set');
+        console.log('🔍 NEXT_PUBLIC_INSTAGRAM_USER_ID:', process.env.NEXT_PUBLIC_INSTAGRAM_USER_ID ? 'Set' : 'Not set');
+        
         const instagramData = await fetchInstagramPosts();
+        console.log('🔍 Instagram API result:', instagramData);
+        
         setInstagramPosts(instagramData.length > 0 ? instagramData : FALLBACK_INSTAGRAM_POSTS);
 
       } catch (err) {
-        console.error(err);
+        console.error('❌ Error in fetchContent:', err);
         setError("Unable to load content at this time.");
         // Set fallback data
         setYoutubeVideos(FALLBACK_YOUTUBE_VIDEOS);
