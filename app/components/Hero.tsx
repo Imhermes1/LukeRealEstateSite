@@ -10,7 +10,8 @@ export default function Hero() {
             backgroundImage: 'url(/images/urlaubstracker-dW8dOC8r7O4-unsplash.jpg)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat'
+            backgroundRepeat: 'no-repeat',
+            filter: 'blur(10px)'
           }}
           className="hero-image"
         />
