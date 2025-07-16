@@ -3,8 +3,8 @@ export default function Hero() {
     <section id="hero" className="hero-section" aria-label="Hero">
       <div className="hero-background">
         <img 
-          src="https://images.unsplash.com/photo-1502333772257-6b67ca3d0958?auto=format&fit=crop&w=1600&q=80" 
-          alt="Melbourne city skyline at dusk" 
+          src="https://images.unsplash.com/photo-1595971294624-80bcf0d7eb24?auto=format&fit=crop&w=1600&q=80" 
+          alt="Melbourne city skyline during day time" 
           className="hero-image"
         />
         <div className="hero-overlay"></div>

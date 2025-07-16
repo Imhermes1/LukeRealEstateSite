@@ -19,12 +19,12 @@ export default function Services() {
         </div>
         
         <div className="services-video-section">
-          <h3 className="video-title">Auction Success Story - Mordialloc Property</h3>
+          <h3 className="video-title">Auction Success in Mordialloc</h3>
           <p className="video-description">Watch Luke Fornieri and MAK Realty achieve outstanding results at this Mordialloc auction, selling $150,000 above reserve.</p>
           <div className="video-container">
             <iframe
               src="https://www.youtube.com/embed/z6rLeOVZcpU?autoplay=1&mute=1"
-              title="Luke Fornieri - Melbourne Luxury Real Estate Market Insights"
+              title="Luke Fornieri - Melbourne Premium Real Estate Market"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
