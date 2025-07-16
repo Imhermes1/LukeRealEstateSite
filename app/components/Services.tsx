@@ -32,7 +32,7 @@ export default function Services() {
             ></iframe>
           </div>
           <div className="video-subtitle">
-            <p><strong>Auction Campaign Lead Agent:Luke Fornieri</strong></p>
+            <p><strong>MAK Realty Auction Campaign, Lead Agent:Luke Fornieri</strong></p>
             <p>Auctioneer: Claude Makdesi on 1/4 Chute Street Mordialloc</p>
             <p>Selling $150,000 Above the Vendors Reserve price</p>
           </div>
