@@ -1810,7 +1810,7 @@ a:focus-visible {
 .ig-profile-section {
   max-width: 420px;
   margin: 0 auto;
-  padding: 2.5rem 1rem;
+  padding: 1rem 1rem;
   background: #141a29;
 }
 
@@ -1819,7 +1819,7 @@ a:focus-visible {
   background: rgba(255, 255, 255, 0.15);
   border-radius: 0.5rem;
   padding: 0.5rem 0.3rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
   box-shadow: 0 2px 8px 0 rgba(31, 38, 135, 0.13);
   display: flex;
   flex-direction: column;
@@ -1898,7 +1898,7 @@ a:focus-visible {
   grid-template-columns: repeat(3, 1fr);
   gap: 6px;
   max-width: 450px;
-  margin-bottom: var(--space-12);
+  margin-bottom: var(--space-6);
 }
 
 .instagram-grid-item {
@@ -1982,12 +1982,13 @@ a:focus-visible {
 /* Responsive adjustments for glassmorphism Instagram design */
 @media (max-width: 768px) {
   .ig-profile-section {
-    padding: 1rem 0.5rem;
+    padding: 0.75rem 0.5rem;
   }
   
   .instagram-profile-header {
     padding: 0.375rem 0.25rem;
     border-radius: 0.375rem;
+    margin-bottom: 0.2rem;
   }
   
   .instagram-profile-pic {
