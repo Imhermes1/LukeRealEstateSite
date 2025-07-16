@@ -117,24 +117,16 @@ export default function Social() {
         <div className="social-grid">
           <div className="social-column">
             <h3 className="social-subtitle">Instagram Feed</h3>
-            <div className="instagram-feed">
+            <div className="instagram-grid">
               {instagramPosts.map((post) => (
-                <div key={post.id} className="instagram-post">
-                  <div className="instagram-post-header">
-                    <div className="instagram-user">
-                      <img 
-                        src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=40&h=40&q=80" 
-                        alt="@lukefornieri"
-                        className="instagram-avatar"
-                      />
-                      <div className="instagram-user-info">
-                        <span className="instagram-username">lukefornieri</span>
-                      </div>
-                    </div>
-                    <span className="instagram-timestamp">{formatDate(post.timestamp)}</span>
-                  </div>
-                  
-                  <div className="instagram-image">
+                <a 
+                  key={post.id} 
+                  href={post.permalink} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="instagram-grid-item"
+                >
+                  <div className="instagram-grid-image">
                     <img 
                       src={post.mediaUrl} 
                       alt="Instagram post" 
@@ -146,43 +138,26 @@ export default function Social() {
                         console.log('🔍 Image loaded successfully:', post.mediaUrl);
                       }}
                     />
-                  </div>
-                  
-                  <div className="instagram-actions">
-                    <div className="instagram-actions-left">
-                      <button className="instagram-action-btn">❤️</button>
-                      <button className="instagram-action-btn">💬</button>
-                      <button className="instagram-action-btn">📤</button>
+                    <div className="instagram-grid-overlay">
+                      <div className="instagram-grid-stats">
+                        <span className="instagram-stat">❤️ {post.likes || 0}</span>
+                        <span className="instagram-stat">💬 {post.comments || 0}</span>
+                      </div>
                     </div>
-                    <button className="instagram-action-btn">🔖</button>
                   </div>
-                  
-                  <div className="instagram-likes">
-                    {post.likes > 0 ? `${post.likes} likes` : 'No likes yet'}
-                  </div>
-                  
-                  <div className="instagram-caption">
-                    <span className="instagram-username">@lukefornieri</span> {post.caption}
-                  </div>
-                  
-                  {post.comments > 0 && (
-                    <div className="instagram-comments">
-                      View all {post.comments} comments
-                    </div>
-                  )}
-                </div>
-              ))}
-              
-              <div className="instagram-cta">
-                <a 
-                  href="https://instagram.com/lukefornieri" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="instagram-follow-button"
-                >
-                  Follow @lukefornieri on Instagram
                 </a>
-              </div>
+              ))}
+            </div>
+            
+            <div className="instagram-cta">
+              <a 
+                href="https://instagram.com/lukefornieri" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="instagram-follow-button"
+              >
+                Follow @lukefornieri on Instagram
+              </a>
             </div>
           </div>
           
