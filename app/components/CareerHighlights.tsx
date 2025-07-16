@@ -25,7 +25,7 @@ export default function CareerHighlights({ properties, onPropertyClick }: Career
     <section id="career-highlights" className="section" aria-label="Career Highlight Sales">
       <div className="container">
         <h2 className="section-title">Career Highlight Sales</h2>
-        <p className="section-subtitle">Record-breaking achievements in Melbourne's luxury property market</p>
+        <p className="section-subtitle">Proven success in Melbourne’s high end property market</p>
         <div className="sales-grid">
           {properties.map((property, index) => {
             const [street, suburb] = property.address.split(", ");
