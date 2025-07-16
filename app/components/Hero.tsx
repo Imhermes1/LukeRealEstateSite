@@ -3,7 +3,7 @@ export default function Hero() {
     <section id="hero" className="hero-section" aria-label="Hero">
       <div className="hero-background">
         <img 
-          src="/images/hero-melbourne-skyline.jpg" 
+          src="/images/urlaubstracker-dW8dOC8r7O4-unsplash.jpg" 
           alt="Melbourne city skyline during day time" 
           className="hero-image"
         />
