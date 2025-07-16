@@ -121,9 +121,9 @@ export default function Social() {
                   className="instagram-profile-pic"
                 />
                 <div className="instagram-profile-details">
-                  <h4 className="instagram-profile-name">lukefornieri</h4>
+                  <h4 className="instagram-profile-name">Luke Fornieri</h4>
                   <p className="instagram-profile-title">Real Estate Agent • Melbourne</p>
-                  <p className="instagram-profile-bio">Luxury property specialist in Melbourne's premium market 🏠✨</p>
+                  <p className="instagram-profile-bio">Premium Property specialist in Melbourne's East & South East🏠✨</p>
                 </div>
               </div>
               <a 
