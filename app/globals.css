@@ -355,12 +355,28 @@ a:focus-visible {
 }
 
 .btn-secondary {
-  background-color: var(--color-secondary);
-  color: var(--color-text);
+  background-color: #151C2E;
+  color: #CFBA97;
+  border: 1px solid #CFBA97;
 }
 
 .btn-secondary:hover {
-  background-color: var(--color-secondary-hover);
+  background-color: #CFBA97;
+  color: #151C2E;
+  border: 1px solid #CFBA97;
+  transform: translateY(-1px);
+}
+
+.btn-secondary-invert {
+  background-color: #CFBA97;
+  color: #151C2E;
+  border: 1px solid #151C2E;
+}
+
+.btn-secondary-invert:hover {
+  background-color: #151C2E;
+  color: #CFBA97;
+  border: 1px solid #CFBA97;
   transform: translateY(-1px);
 }
 

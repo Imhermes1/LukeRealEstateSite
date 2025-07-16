@@ -132,7 +132,7 @@ export default function Social() {
   }, []);
 
   return (
-    <section id="social" className="section bg-light" aria-label="Social Media">
+    <section id="social" className="section" aria-label="Social Media">
       <div className="container">
         <h2 className="section-title">Stay Connected</h2>
         <div className="social-grid">
