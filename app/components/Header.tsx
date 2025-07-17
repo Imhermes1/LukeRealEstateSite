@@ -7,6 +7,7 @@ export default function Header() {
   const menuRef = useRef<HTMLDivElement>(null);
 
   const toggleMenu = () => {
+    console.log('Menu toggle clicked!', !isMenuOpen);
     setIsMenuOpen((open) => !open);
   };
 
@@ -37,23 +38,11 @@ export default function Header() {
         setIsMenuOpen(false);
       }
     }
-    
-    // Prevent menu from closing when clicking inside it
-    function handleMenuClick(event: MouseEvent) {
-      event.stopPropagation();
-    }
-    
+
     document.addEventListener('mousedown', handleClickOutside);
-    
-    if (menuRef.current) {
-      menuRef.current.addEventListener('click', handleMenuClick);
-    }
-    
+
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
-      if (menuRef.current) {
-        menuRef.current.removeEventListener('click', handleMenuClick);
-      }
     };
   }, [isMenuOpen]);
 
@@ -61,9 +50,9 @@ export default function Header() {
     <header className="sticky-header" role="banner">
       <nav className="nav-container" aria-label="Main navigation">
         <div className="nav-brand">
-          <img 
-            src="/images/logo.svg" 
-            alt="MAK REALTY Logo" 
+          <img
+            src="/images/logo.svg"
+            alt="MAK REALTY Logo"
             className="brand-logo"
           />
           <div className="brand-text">
@@ -71,9 +60,9 @@ export default function Header() {
           </div>
         </div>
         <div className="nav-hamburger-wrapper" ref={menuRef}>
-          <button 
-            className={`nav-toggle${isMenuOpen ? ' nav-toggle--open' : ''}`} 
-            aria-label="Toggle navigation menu" 
+          <button
+            className={`nav-toggle${isMenuOpen ? ' nav-toggle--open' : ''}`}
+            aria-label="Toggle navigation menu"
             aria-expanded={isMenuOpen}
             onClick={toggleMenu}
           >
@@ -84,10 +73,10 @@ export default function Header() {
           {isMenuOpen && (
             <div className="nav-dropdown-menu" role="menu">
               {menuItems.map(item => (
-                <a 
+                <a
                   key={item.id}
-                  href={`#${item.id}`} 
-                  role="menuitem" 
+                  href={`#${item.id}`}
+                  role="menuitem"
                   onClick={(e) => {
                     e.preventDefault();
                     handleMenuClick(item.id);
