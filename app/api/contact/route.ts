@@ -29,7 +29,7 @@ async function addToNotionDatabase(formData: any) {
           email: formData.email
         },
         'Phone': {
-          phone_number: formData.phone || ''
+          phone_number: formData.phone || null
         },
         'Contact Method': {
           select: { name: formData.contactMethod || 'email' }
