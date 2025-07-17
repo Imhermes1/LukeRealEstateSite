@@ -3,12 +3,15 @@ import { NextRequest, NextResponse } from 'next/server';
 // Notion API integration
 async function addToNotionDatabase(formData: any) {
   const notionToken = process.env.NOTION_TOKEN;
-  const notionDatabaseId = process.env.NOTION_DATABASE_ID;
+  let notionDatabaseId = process.env.NOTION_DATABASE_ID;
 
   if (!notionToken || !notionDatabaseId) {
     console.warn('Notion credentials not configured - NOTION_TOKEN or NOTION_DATABASE_ID missing');
     return null;
   }
+
+  // Clean the database ID - remove any query parameters and get just the UUID
+  notionDatabaseId = notionDatabaseId.split('?')[0].split('&')[0];
 
   console.log('Attempting to add to Notion database:', {
     databaseId: notionDatabaseId,
