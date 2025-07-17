@@ -21,6 +21,8 @@ export default function Contact() {
     setSubmitStatus('idle');
     setErrorMessage('');
 
+    console.log('Submitting form data:', formData);
+
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
@@ -30,7 +32,11 @@ export default function Contact() {
         body: JSON.stringify(formData),
       });
 
+      console.log('Response status:', response.status);
+      console.log('Response headers:', Object.fromEntries(response.headers.entries()));
+
       const result = await response.json();
+      console.log('Response data:', result);
 
       if (response.ok) {
         setSubmitStatus('success');
@@ -47,9 +53,9 @@ export default function Contact() {
         setErrorMessage(result.error || 'Something went wrong. Please try again.');
       }
     } catch (error) {
+      console.error('Form submission error:', error);
       setSubmitStatus('error');
       setErrorMessage('Network error. Please check your connection and try again.');
-      console.error('Form submission error:', error);
     } finally {
       setIsSubmitting(false);
     }

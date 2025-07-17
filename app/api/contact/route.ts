@@ -6,7 +6,7 @@ async function addToNotionDatabase(formData: any) {
   const notionDatabaseId = process.env.NOTION_DATABASE_ID;
 
   if (!notionToken || !notionDatabaseId) {
-    console.warn('Notion credentials not configured');
+    console.warn('Notion credentials not configured - NOTION_TOKEN or NOTION_DATABASE_ID missing');
     return null;
   }
 
@@ -48,7 +48,7 @@ async function addToNotionDatabase(formData: any) {
 
     if (!response.ok) {
       const errorText = await response.text();
-      console.error('Notion API error:', errorText);
+      console.error('Notion API error:', response.status, errorText);
       return null;
     }
 
@@ -64,7 +64,7 @@ async function sendEmailNotification(formData: any) {
   const resendApiKey = process.env.RESEND_API_KEY;
   
   if (!resendApiKey) {
-    console.warn('Resend API key not configured');
+    console.warn('Resend API key not configured - RESEND_API_KEY missing');
     return null;
   }
 
@@ -95,7 +95,7 @@ async function sendEmailNotification(formData: any) {
 
     if (!response.ok) {
       const errorText = await response.text();
-      console.error('Resend API error:', errorText);
+      console.error('Resend API error:', response.status, errorText);
       return null;
     }
 
@@ -109,6 +109,13 @@ async function sendEmailNotification(formData: any) {
 export async function POST(request: NextRequest) {
   try {
     const formData = await request.json();
+
+    // Log environment variable status
+    console.log('Environment variables status:', {
+      hasNotionToken: !!process.env.NOTION_TOKEN,
+      hasNotionDatabaseId: !!process.env.NOTION_DATABASE_ID,
+      hasResendApiKey: !!process.env.RESEND_API_KEY
+    });
 
     // Validate required fields
     if (!formData.name || !formData.email || !formData.message) {
@@ -141,6 +148,21 @@ export async function POST(request: NextRequest) {
       emailSuccess: !!emailResult,
       timestamp: new Date().toISOString()
     });
+
+    // Check if any integrations are configured
+    const hasAnyIntegration = process.env.NOTION_TOKEN || process.env.RESEND_API_KEY;
+    
+    if (!hasAnyIntegration) {
+      console.warn('No integrations configured - form will only show success message');
+      return NextResponse.json({
+        success: true,
+        message: 'Thank you! Your message has been received. (Note: Integrations not configured)',
+        integrations: {
+          notion: false,
+          email: false
+        }
+      });
+    }
 
     // Return success even if some integrations failed
     return NextResponse.json({

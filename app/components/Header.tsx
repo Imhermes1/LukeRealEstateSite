@@ -1,9 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLLIElement>(null);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -12,6 +14,23 @@ export default function Header() {
   const closeMenu = () => {
     setIsMenuOpen(false);
   };
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        isDropdownOpen &&
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsDropdownOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isDropdownOpen]);
 
   return (
     <header className="sticky-header" role="banner">
@@ -29,7 +48,34 @@ export default function Header() {
         <ul className={`nav-menu ${isMenuOpen ? 'nav-menu--open' : ''}`} role="menubar">
           <li role="none"><a href="#hero" role="menuitem" onClick={closeMenu}>Home</a></li>
           <li role="none"><a href="#career-highlights" role="menuitem" onClick={closeMenu}>Career Highlights</a></li>
-          <li role="none"><a href="#services" role="menuitem" onClick={closeMenu}>Services</a></li>
+          {/* Dropdown menu for Services */}
+          <li
+            role="none"
+            className="nav-dropdown"
+            ref={dropdownRef}
+            onMouseEnter={() => setIsDropdownOpen(true)}
+            onMouseLeave={() => setIsDropdownOpen(false)}
+          >
+            <button
+              className="nav-dropdown-toggle"
+              aria-haspopup="true"
+              aria-expanded={isDropdownOpen}
+              onClick={e => {
+                e.preventDefault();
+                setIsDropdownOpen(open => !open);
+              }}
+            >
+              Services <span aria-hidden="true">▼</span>
+            </button>
+            {isDropdownOpen && (
+              <ul className="dropdown-menu" role="menu">
+                <li role="none"><a href="#services" role="menuitem" onClick={() => { setIsDropdownOpen(false); closeMenu(); }}>All Services</a></li>
+                <li role="none"><a href="#buyers" role="menuitem" onClick={() => { setIsDropdownOpen(false); closeMenu(); }}>Buyers</a></li>
+                <li role="none"><a href="#sellers" role="menuitem" onClick={() => { setIsDropdownOpen(false); closeMenu(); }}>Sellers</a></li>
+                {/* Add more dropdown items as needed */}
+              </ul>
+            )}
+          </li>
           <li role="none"><a href="#about" role="menuitem" onClick={closeMenu}>About</a></li>
           <li role="none"><a href="#testimonials" role="menuitem" onClick={closeMenu}>Testimonials</a></li>
           <li role="none"><a href="#media-coverage" role="menuitem" onClick={closeMenu}>Media</a></li>
