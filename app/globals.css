@@ -905,15 +905,17 @@ a:focus-visible {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--space-16);
-  border: 1px solid var(--color-card-border);
-  border-radius: var(--radius-base);
-  transition: all var(--duration-fast) var(--ease-standard);
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  transition: none;
+  background: none;
 }
 
 .media-logos a:hover {
-  border-color: var(--color-primary);
-  transform: translateY(-2px);
+  border: none;
+  transform: none;
+  background: none;
 }
 
 .media-logo-placeholder {
@@ -2061,13 +2063,17 @@ a:focus-visible {
   position: relative;
   aspect-ratio: 1;
   overflow: hidden;
-  background: var(--color-surface);
-  border-radius: 4px;
-  transition: opacity var(--duration-fast) var(--ease-standard);
+  background: rgba(255,255,255,0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(27186, 151, 0.25);
+  transition: all var(--duration-fast) var(--ease-standard);
 }
 
 .instagram-grid-item:hover {
-  opacity: 0.85;
+  border-color: #CFBA97;
+  box-shadow: 0 0 0 3px #CFBA97, 0 4px 20px rgba(21, 28, 46, 0.10);
+  transform: translateY(-2px);
 }
 
 .instagram-grid-image {
