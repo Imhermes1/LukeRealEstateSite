@@ -1120,8 +1120,9 @@ a:focus-visible {
 }
 
 .youtube-video:hover {
-  border-color: var(--color-primary);
-  box-shadow: 0 0 0 2px var(--color-primary);
+  border-color: #CFBA97;
+  box-shadow: 0 0 0 3px #CFBA97, 0 4px 20px rgba(21, 28, 46, 0.10);
+  transform: translateY(-2px);
 }
 
 .youtube-thumbnail {
@@ -1195,8 +1196,9 @@ a:focus-visible {
 }
 
 .medium-post:hover {
-  border-color: var(--color-primary);
-  box-shadow: 0 0 0 2px var(--color-primary);
+  border-color: #CFBA97;
+  box-shadow: 0 0 0 3px #CFBA97, 0 4px 20px rgba(21, 28, 46, 0.10);
+  transform: translateY(-2px);
 }
 
 .medium-post-title {
