@@ -1121,7 +1121,7 @@ a:focus-visible {
 
 .youtube-video:hover {
   border-color: var(--color-primary);
-  transform: translateY(-2px);
+  box-shadow: 0 0 0 2px var(--color-primary);
 }
 
 .youtube-thumbnail {
@@ -1196,7 +1196,7 @@ a:focus-visible {
 
 .medium-post:hover {
   border-color: var(--color-primary);
-  transform: translateY(-2px);
+  box-shadow: 0 0 0 2px var(--color-primary);
 }
 
 .medium-post-title {
