@@ -10,9 +10,21 @@ export default function Header() {
     setIsMenuOpen((open) => !open);
   };
 
-  const closeMenu = () => {
+  const handleMenuClick = (sectionId: string) => {
     setIsMenuOpen(false);
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
   };
+
+  const menuItems = [
+    { id: 'hero', label: 'Home' },
+    { id: 'career-highlights', label: 'Career Highlights' },
+    { id: 'services', label: 'Services' },
+    { id: 'about', label: 'About' },
+    { id: 'testimonials', label: 'Testimonials' },
+    { id: 'media-coverage', label: 'Media' },
+    { id: 'social', label: 'Social' },
+    { id: 'contact', label: 'Contact' }
+  ];
 
   // Close menu when clicking outside
   useEffect(() => {
@@ -71,14 +83,19 @@ export default function Header() {
           </button>
           {isMenuOpen && (
             <div className="nav-dropdown-menu" role="menu">
-              <a href="#hero" role="menuitem" onClick={closeMenu}>Home</a>
-              <a href="#career-highlights" role="menuitem" onClick={closeMenu}>Career Highlights</a>
-              <a href="#services" role="menuitem" onClick={closeMenu}>Services</a>
-              <a href="#about" role="menuitem" onClick={closeMenu}>About</a>
-              <a href="#testimonials" role="menuitem" onClick={closeMenu}>Testimonials</a>
-              <a href="#media-coverage" role="menuitem" onClick={closeMenu}>Media</a>
-              <a href="#social" role="menuitem" onClick={closeMenu}>Social</a>
-              <a href="#contact" role="menuitem" onClick={closeMenu}>Contact</a>
+              {menuItems.map(item => (
+                <a 
+                  key={item.id}
+                  href={`#${item.id}`} 
+                  role="menuitem" 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleMenuClick(item.id);
+                  }}
+                >
+                  {item.label}
+                </a>
+              ))}
             </div>
           )}
         </div>
