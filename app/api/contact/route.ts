@@ -10,7 +10,41 @@ async function addToNotionDatabase(formData: any) {
     return null;
   }
 
+  console.log('Attempting to add to Notion database:', {
+    databaseId: notionDatabaseId,
+    tokenExists: !!notionToken
+  });
+
   try {
+    const requestBody = {
+      parent: { database_id: notionDatabaseId },
+      properties: {
+        'Name': {
+          title: [{ text: { content: formData.name } }]
+        },
+        'Email': {
+          email: formData.email
+        },
+        'Phone': {
+          phone_number: formData.phone || ''
+        },
+        'Contact Method': {
+          select: { name: formData.contactMethod || 'email' }
+        },
+        'Message': {
+          rich_text: [{ text: { content: formData.message } }]
+        },
+        'Status': {
+          select: { name: 'New' }
+        },
+        'Submitted': {
+          date: { start: new Date().toISOString() }
+        }
+      }
+    };
+
+    console.log('Notion API request body:', JSON.stringify(requestBody, null, 2));
+
     const response = await fetch('https://api.notion.com/v1/pages', {
       method: 'POST',
       headers: {
@@ -18,41 +52,22 @@ async function addToNotionDatabase(formData: any) {
         'Content-Type': 'application/json',
         'Notion-Version': '2022-06-28',
       },
-      body: JSON.stringify({
-        parent: { database_id: notionDatabaseId },
-        properties: {
-          'Name': {
-            title: [{ text: { content: formData.name } }]
-          },
-          'Email': {
-            email: formData.email
-          },
-          'Phone': {
-            phone_number: formData.phone || ''
-          },
-          'Contact Method': {
-            select: { name: formData.contactMethod || 'email' }
-          },
-          'Message': {
-            rich_text: [{ text: { content: formData.message } }]
-          },
-          'Status': {
-            select: { name: 'New' }
-          },
-          'Submitted': {
-            date: { start: new Date().toISOString() }
-          }
-        }
-      })
+      body: JSON.stringify(requestBody)
     });
+
+    console.log('Notion API response status:', response.status);
+    console.log('Notion API response headers:', Object.fromEntries(response.headers.entries()));
 
     if (!response.ok) {
       const errorText = await response.text();
-      console.error('Notion API error:', response.status, errorText);
+      console.error('Notion API error response:', errorText);
+      console.error('Notion API error status:', response.status);
       return null;
     }
 
-    return await response.json();
+    const result = await response.json();
+    console.log('Notion API success response:', result);
+    return result;
   } catch (error) {
     console.error('Error adding to Notion:', error);
     return null;
