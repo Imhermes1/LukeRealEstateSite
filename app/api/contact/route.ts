@@ -77,7 +77,7 @@ async function sendEmailNotification(formData: any) {
       },
       body: JSON.stringify({
         from: 'website@lukefornieri.com.au',
-        to: ['luke@makrealty.com.au'],
+        to: ['luke.f@makrealty.com.au'],
         subject: `New Lead: ${formData.name} - Luke Fornieri Website`,
         html: `
           <h2>New Contact Form Submission</h2>

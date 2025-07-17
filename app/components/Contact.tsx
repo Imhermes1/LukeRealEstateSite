@@ -79,7 +79,7 @@ export default function Contact() {
             <p>Ready to buy, sell, or invest in Melbourne's premium property market? I'm here to help you achieve your real estate objectives.</p>
             <div className="contact-details">
               <p><strong>Phone:</strong> +61 3 9876 5432</p>
-              <p><strong>Email:</strong> luke@makrealty.com.au</p>
+              <p><strong>Email:</strong> luke.f@makrealty.com.au</p>
               <p><strong>Office:</strong> MAK REALTY, 123 Collins Street, Melbourne VIC 3000</p>
             </div>
           </div>
