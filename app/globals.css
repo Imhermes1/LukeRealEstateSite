@@ -881,8 +881,13 @@ a:focus-visible {
 
 .testimonials-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--space-24);
+}
+
+.testimonials-grid .testimonial:nth-child(4) {
+  grid-column: 2;
+  justify-self: center;
 }
 
 .testimonial {
@@ -1658,6 +1663,15 @@ a:focus-visible {
 
   .services-grid {
     grid-template-columns: 1fr;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonials-grid .testimonial:nth-child(4) {
+    grid-column: 1;
+    justify-self: stretch;
   }
 
   .about-content {
