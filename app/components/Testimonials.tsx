@@ -13,8 +13,8 @@ export default function Testimonials() {
             <cite>- David L.</cite>
           </blockquote>
           <blockquote className="testimonial">
-            <p>"Luke's off-market strategy secured us our dream home before it even hit the market."</p>
-            <cite>- Priya R.</cite>
+            <p>"Luke was very quick to act on selling this property and has no problem meeting buyers at anytime of the day or week. We were in a hurry to sell and Luke did not dissapoint us, sold very quicky and to the right buyers. Thanks Luke."</p>
+            <cite>- Angelo.</cite>
           </blockquote>
         </div>
       </div>
