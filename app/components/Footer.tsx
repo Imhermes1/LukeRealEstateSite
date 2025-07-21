@@ -13,7 +13,7 @@ export default function Footer() {
             />
             <div className="footer-brand-text">
               <h3>Luke Fornieri</h3>
-              <p>Your trusted partner in Melbourne's luxury real estate market. Specializing in premium properties and exceptional service.</p>
+              <p>Your trusted partner in Melbourne's luxury real estate market. Specialising in premium properties and exceptional service.</p>
             </div>
           </div>
           
@@ -30,8 +30,8 @@ export default function Footer() {
           <div className="footer-links">
             <h4>Contact</h4>
             <ul>
-              <li>📧 info@lukefornieri.com</li>
-              <li>📞 +61 3 1234 5678</li>
+              <li>📧 luke.f@makrealty.com.au</li>
+              <li>📞 0423 633 740</li>
               <li>📍 Melbourne, VIC</li>
             </ul>
           </div>
