@@ -2664,8 +2664,8 @@ a:focus-visible {
   margin-bottom: 1.5rem;
 }
 .instagram-grid-item {
-  width: 56px;
-  height: 56px;
+  width: 112px;
+  height: 112px;
   border-radius: 12px;
   overflow: hidden;
   position: relative;
