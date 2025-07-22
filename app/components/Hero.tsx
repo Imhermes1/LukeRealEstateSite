@@ -27,18 +27,13 @@ export default function Hero() {
         </div>
         
         {/* Hero Image */}
-        <div 
-          style={{
-            width: '100%',
-            height: '100%',
-            backgroundColor: '#151C2E',
-            backgroundImage: 'url(/images/hero-optimized.jpg)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat'
-          }}
-          className={`hero-image ${isLoaded ? 'hero-image-fade-in' : ''}`}
-        />
+        <div className="hero-image-container">
+          <img 
+            src="/images/hero-optimized.jpg"
+            alt="Melbourne Real Estate Hero"
+            className={`hero-image ${isLoaded ? 'hero-image-fade-in' : ''}`}
+          />
+        </div>
         <div className="hero-overlay"></div>
         <div className="hero-glassmorphism"></div>
       </div>

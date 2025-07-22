@@ -1,7 +1,7 @@
 :root {
   /* Colors - Updated with new palette */
-  --color-background: #FFFFFF;
-  --color-surface: #FFFFFF;
+  --color-background: #151C2E;
+  --color-surface: #151C2E;
   --color-text: #CFBA97;
   --color-text-secondary: #CFBA97;
   --color-primary: #151C2E;
@@ -230,6 +230,7 @@
 
 html {
   scroll-behavior: smooth;
+  background-color: #151C2E;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -255,17 +256,7 @@ body {
   position: relative;
 }
 
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.3);
-  pointer-events: none;
-  z-index: -1;
-}
+/* Removed body overlay to ensure consistent background */
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Arial Nova", var(--font-family-base);
@@ -308,6 +299,7 @@ a:focus-visible {
 
 .section {
   padding: var(--space-32) 0;
+  background-color: #151C2E;
 }
 
 .section-title {
@@ -608,20 +600,28 @@ a:focus-visible {
   filter: brightness(0.8) contrast(1.2);
 }
 
+.hero-image-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  background-color: #151C2E;
+}
+
 .hero-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
   will-change: transform;
   transform: translateZ(0);
-  background-color: #151C2E;
-  transition: opacity 0.3s ease-in-out;
   opacity: 0;
+  transition: opacity 2s ease-in-out;
 }
 
 .hero-image-fade-in {
   opacity: 1;
-  transition: opacity 2s ease-in-out;
 }
 
 .hero-overlay {
@@ -1658,10 +1658,6 @@ a:focus-visible {
 
 /* Mobile responsive styles */
 @media (max-width: 768px) {
-  .hero-logo {
-    max-width: 200px;
-    max-height: 150px;
-  }
   
   .nav-menu {
     position: fixed;
@@ -1774,10 +1770,6 @@ a:focus-visible {
 }
 
 @media (max-width: 480px) {
-  .hero-logo {
-    max-width: 150px;
-    max-height: 100px;
-  }
   
   :root {
     --space-8: 12px;
