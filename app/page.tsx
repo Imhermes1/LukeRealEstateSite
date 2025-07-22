@@ -61,6 +61,7 @@ export default function Home() {
         isOpen={isModalOpen}
         onClose={closeModal}
         property={properties[selectedProperty]}
+        propertyIndex={selectedProperty}
       />
     </>
   );

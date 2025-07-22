@@ -1516,6 +1516,40 @@ a:focus-visible {
   width: 100%;
 }
 
+/* YouTube Video in Modal */
+.modal-youtube-section {
+  margin: var(--space-6) 0;
+  padding: var(--space-4) 0;
+  border-top: 1px solid rgba(207, 186, 151, 0.2);
+  border-bottom: 1px solid rgba(207, 186, 151, 0.2);
+}
+
+.modal-youtube-title {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: var(--space-4);
+  text-align: center;
+}
+
+.modal-youtube-container {
+  position: relative;
+  width: 100%;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.modal-youtube-iframe {
+  display: block;
+  border-radius: var(--border-radius);
+  transition: transform 0.3s ease;
+}
+
+.modal-youtube-iframe:hover {
+  transform: scale(1.02);
+}
+
 .footer {
   background-color: #151C2E;
   color: #CFBA97;

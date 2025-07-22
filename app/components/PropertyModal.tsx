@@ -14,6 +14,7 @@ interface PropertyModalProps {
   isOpen: boolean;
   onClose: () => void;
   property: Property;
+  propertyIndex?: number;
 }
 
 function formatPrice(price: number) {
@@ -25,7 +26,7 @@ function formatPrice(price: number) {
   }).format(price);
 }
 
-export default function PropertyModal({ isOpen, onClose, property }: PropertyModalProps) {
+export default function PropertyModal({ isOpen, onClose, property, propertyIndex }: PropertyModalProps) {
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape' && isOpen) {
@@ -94,6 +95,26 @@ export default function PropertyModal({ isOpen, onClose, property }: PropertyMod
             <p id="modal-location" className="modal-location">{suburb}</p>
             <p id="modal-price" className="modal-price">{formatPrice(property.price)}</p>
             <p id="modal-description" className="modal-description">{property.details}</p>
+            
+            {/* YouTube Video for Templestowe Property */}
+            {propertyIndex === 0 && (
+              <div className="modal-youtube-section">
+                <h3 className="modal-youtube-title">Property Video Tour</h3>
+                <div className="modal-youtube-container">
+                  <iframe
+                    width="100%"
+                    height="315"
+                    src="https://www.youtube.com/embed/UlwuEQnlMXg?enablejsapi=1&rel=0&modestbranding=1"
+                    title="Templestowe Property Video Tour"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                    className="modal-youtube-iframe"
+                  ></iframe>
+                </div>
+              </div>
+            )}
+            
             <div className="modal-actions">
               <button className="btn btn-primary enquire-btn" onClick={handleEnquire}>
                 Enquire about similar properties
