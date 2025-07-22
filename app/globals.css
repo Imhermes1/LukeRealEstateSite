@@ -2630,3 +2630,16 @@ a:focus-visible {
 .services-grid-4 {
   gap: var(--space-12);
 }
+
+.glass-card.gold-glass-border {
+  border: 2.5px solid var(--color-accent-gold);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.10), 0 0 0 2px var(--color-accent-gold), inset 0 1px 0 rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.15);
+  transition: box-shadow 0.3s, transform 0.3s, border-color 0.2s;
+}
+.glass-card.gold-glass-border:hover, .glass-card.gold-glass-border:focus {
+  box-shadow: 0 16px 48px rgba(207,186,151,0.18), 0 0 0 3px var(--color-accent-gold), 0 12px 40px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.3);
+  border-color: var(--color-accent-gold);
+  transform: translateY(-2px) scale(1.03);
+  outline: none;
+}

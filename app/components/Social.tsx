@@ -143,7 +143,7 @@ export default function Social() {
                   href={post.permalink} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="instagram-grid-item"
+                  className="instagram-grid-item glass-card gold-glass-border"
                 >
                   <div className="instagram-grid-image">
                     <img 
@@ -186,7 +186,7 @@ export default function Social() {
                   href={`https://www.youtube.com/watch?v=${video.id}`} 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="youtube-video"
+                  className="youtube-video glass-card gold-glass-border"
                 >
                   <div className="youtube-thumbnail">
                     <img src={video.thumbnail} alt={video.title} />
@@ -209,7 +209,7 @@ export default function Social() {
               {isLoading && <p className="loading-message">Loading latest articles...</p>}
               {error && <p className="error-message">{error}</p>}
               {!isLoading && !error && mediumPosts.map((post, index) => (
-                <a key={index} href={post.link} target="_blank" rel="noopener noreferrer" className="medium-post">
+                <a key={index} href={post.link} target="_blank" rel="noopener noreferrer" className="medium-post glass-card gold-glass-border">
                   <h4 className="medium-post-title">{post.title}</h4>
                   <time className="medium-post-date" dateTime={post.pubDate}>
                     {formatDate(post.pubDate)}
