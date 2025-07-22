@@ -2400,3 +2400,56 @@ a:focus-visible {
 .animate-glass-modal {
   animation: glassModalIn 0.35s cubic-bezier(0.16,1,0.3,1);
 }
+
+.testimonials-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-12);
+}
+@media (max-width: 1100px) {
+  .testimonials-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 700px) {
+  .testimonials-grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+.compact-testimonial {
+  padding: var(--space-8) var(--space-8);
+  min-height: 100px;
+  font-size: var(--font-size-base);
+}
+.compact-testimonial p {
+  margin-bottom: var(--space-4);
+}
+.compact-testimonial cite {
+  font-size: var(--font-size-sm);
+  opacity: 0.8;
+}
+.testimonial-readmore-pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: var(--space-8) auto 0 auto;
+  padding: 4px 18px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.22);
+  backdrop-filter: blur(8px) saturate(180%);
+  -webkit-backdrop-filter: blur(8px) saturate(180%);
+  color: var(--color-accent-gold);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  border: 1px solid rgba(255,255,255,0.18);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  opacity: 0.92;
+}
+.compact-testimonial:hover .testimonial-readmore-pill,
+.compact-testimonial:focus .testimonial-readmore-pill {
+  background: var(--color-accent-gold);
+  color: var(--color-accent-navy);
+  opacity: 1;
+}

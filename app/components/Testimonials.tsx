@@ -31,10 +31,10 @@ export default function Testimonials() {
     <section id="testimonials" className="section" aria-label="Testimonials">
       <div className="container">
         <h2 className="section-title">What Clients Say</h2>
-        <div className="testimonials-grid">
+        <div className="testimonials-grid testimonials-grid-4">
           {testimonials.map((t, i) => (
             <div
-              className="testimonial glass-card"
+              className="testimonial glass-card compact-testimonial"
               key={i}
               tabIndex={0}
               role="button"
@@ -45,7 +45,7 @@ export default function Testimonials() {
             >
               <p>"{getFirstSentence(t.review)}"</p>
               <cite>- {t.name}</cite>
-              <div className="testimonial-readmore">Read full review</div>
+              <div className="testimonial-readmore-pill">Read full review</div>
             </div>
           ))}
         </div>
