@@ -13,7 +13,7 @@ export default function Footer() {
             />
             <div className="footer-brand-text">
               <h3>Luke Fornieri</h3>
-              <p>Your trusted partner in Melbourne's luxury real estate market. Specialising in premium properties and exceptional service.</p>
+              <p>Your trusted partner in Melbourne's real estate market. Specialising in premium properties and exceptional service.</p>
             </div>
           </div>
           
@@ -56,7 +56,7 @@ export default function Footer() {
         </div>
         
         <div className="footer-bottom">
-          <p>© 2024 Luke Fornieri Real Estate. All rights reserved.</p>
+          <p>© 2025 Luke Fornieri Real Estate. All rights reserved.</p>
           <div className="footer-legal">
             <Link href="/privacy">Privacy Policy</Link>
             <Link href="/deletion">Data Deletion</Link>
