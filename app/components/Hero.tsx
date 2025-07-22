@@ -16,29 +16,31 @@ export default function Hero() {
 
   return (
     <section id="hero" className="hero-section" aria-label="Hero">
+      {/* Background with Logo */}
       <div className="hero-background">
-        {/* MAK Logo Background */}
-        <div className={`hero-logo-background ${isLoaded ? 'hero-logo-fade-out' : ''}`}>
+        <div className="hero-logo-background">
           <img 
             src="/images/MakRealty_Transparent.png" 
             alt="MAK Realty Logo" 
             className="hero-logo"
           />
         </div>
-        
-        {/* Hero Image */}
-        <div className="hero-image-container">
-          <img 
-            src="/images/hero-optimized.jpg"
-            alt="Melbourne Real Estate Hero"
-            className={`hero-image ${isLoaded ? 'hero-image-fade-in' : ''}`}
-          />
-        </div>
-        <div className="hero-overlay"></div>
-        <div className="hero-glassmorphism"></div>
       </div>
       
-      {/* Hero Content with Animation */}
+      {/* Hero Image Layer */}
+      <div className="hero-image-layer">
+        <img 
+          src="/images/hero-optimized.jpg"
+          alt="Melbourne Real Estate Hero"
+          className={`hero-image ${isLoaded ? 'hero-image-fade-in' : ''}`}
+        />
+      </div>
+      
+      {/* Overlay and Effects */}
+      <div className="hero-overlay"></div>
+      <div className="hero-glassmorphism"></div>
+      
+      {/* Hero Content */}
       <div className={`hero-content ${isLoaded ? 'hero-content-fade-in' : ''}`}>
         <h1 className="hero-title">Real Estate Excellence</h1>
         <p className="hero-subtitle">Your trusted partner in Melbourne's property market</p>
