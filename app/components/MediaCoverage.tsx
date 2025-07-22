@@ -2,15 +2,15 @@ import { useState } from 'react';
 
 const mediaArticles = [
   {
-    title: 'Herald Sun Templestowe',
+    title: 'Templestowe Mansion Mini Museum',
     url: 'https://www.realestate.com.au/news/templestowe-europeaninspired-mansion-dubbed-a-mini-museum-with-3m-marble-and-imported-fountain/',
-    summary: 'A feature on the sale of 5 Princely Tce, Templestowe, highlighting its European-inspired design, $3M marble, and imported fountain.',
+    summary: 'A Templestowe mansion featuring an estimated $3.6m in marble stonework has been designed as a “mini museum” to showcase its owners’ art collection...',
     image: '/images/5-Princely-lg.jpg'
   },
   {
-    title: 'Herald Sun Richmond',
+    title: 'Retro Richmond Greek Family Home',
     url: 'https://www.realestate.com.au/news/richmond-house-similar-to-a-wog-boy-setpiece-will-get-you-saying-opa/',
-    summary: 'A spotlight on 9 Manton St, Richmond, a home reminiscent of a Wog Boy setpiece, with unique character and strong buyer interest.',
+    summary: 'A retro Richmond house that’s been owned by the same Greek family for five decades has hit the market amid suggestions it would be perfect for a Wog Boy flick or Sooshi Mango sketch...',
     image: '/images/richmond-article.jpg'
   }
 ];
@@ -42,7 +42,6 @@ export default function MediaCoverage() {
             <div className="modal-content media-modal-content animate-glass-modal">
               <div className="modal-header">
                 <img src={mediaArticles[openIndex].image} alt={mediaArticles[openIndex].title + ' image'} className="media-article-image" />
-                <h3 className="modal-title">{mediaArticles[openIndex].title}</h3>
                 <button className="modal-close" aria-label="Close modal" onClick={() => setOpenIndex(null)}>&times;</button>
               </div>
               <div className="modal-body">
