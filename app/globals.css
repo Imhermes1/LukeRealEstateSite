@@ -2598,3 +2598,35 @@ a:focus-visible {
   margin: 0 auto;
   margin-top: 1.5rem;
 }
+
+.media-article-image-large {
+  max-width: 320px;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 16px;
+  margin: 0 auto 1.2rem auto;
+  display: block;
+}
+
+.service-card {
+  padding: var(--space-8) var(--space-8);
+  min-height: 120px;
+  font-size: var(--font-size-base);
+  border-radius: 18px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  background: rgba(255,255,255,0.13);
+  transition: box-shadow 0.2s, transform 0.2s;
+  margin-bottom: 0;
+}
+.service-title {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--space-4);
+}
+.service-description {
+  font-size: var(--font-size-base);
+  margin-bottom: 0;
+}
+.services-grid-4 {
+  gap: var(--space-12);
+}

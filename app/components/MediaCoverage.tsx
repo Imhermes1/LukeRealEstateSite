@@ -40,8 +40,8 @@ export default function MediaCoverage() {
           <div className="modal modal-open media-modal" role="dialog" aria-modal="true">
             <div className="modal-overlay" onClick={() => setOpenIndex(null)}></div>
             <div className="modal-content media-modal-content animate-glass-modal">
-              <div className="modal-header">
-                <img src={mediaArticles[openIndex].image} alt={mediaArticles[openIndex].title + ' image'} className="media-article-image" />
+              <div className="modal-header" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                <img src={mediaArticles[openIndex].image} alt={mediaArticles[openIndex].title + ' image'} className="media-article-image media-article-image-large" />
                 <button className="modal-close" aria-label="Close modal" onClick={() => setOpenIndex(null)}>&times;</button>
               </div>
               <div className="modal-body">
