@@ -43,13 +43,13 @@
     Monaco, Consolas, monospace;
   --font-size-xs: 11px;
   --font-size-sm: 12px;
-  --font-size-base: 16px;
+  --font-size-base: 14px;
   --font-size-md: 14px;
-  --font-size-lg: 20px;
-  --font-size-xl: 28px;
-  --font-size-2xl: 36px;
-  --font-size-3xl: 48px;
-  --font-size-4xl: 30px;
+  --font-size-lg: 16px;
+  --font-size-xl: 20px;
+  --font-size-2xl: 24px;
+  --font-size-3xl: 32px;
+  --font-size-4xl: 40px;
   --font-weight-normal: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
@@ -304,7 +304,7 @@ a:focus-visible {
 }
 
 .section-title {
-  font-size: var(--font-size-3xl);
+  font-size: var(--font-size-2xl);
   margin-bottom: var(--space-8);
 }
 
@@ -334,7 +334,7 @@ a:focus-visible {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: var(--space-8) var(--space-16);
+  padding: var(--space-6) var(--space-12);
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-medium);
   line-height: 1;
@@ -391,9 +391,9 @@ a:focus-visible {
 }
 
 .btn-hero-large {
-  font-size: var(--font-size-xl);
+  font-size: var(--font-size-lg);
   font-weight: var(--font-weight-semibold);
-  padding: var(--space-16) var(--space-32);
+  padding: var(--space-10) var(--space-20);
   border-radius: var(--radius-lg);
   box-shadow: 0 4px 14px rgba(21, 28, 46, 0.4);
   transition: all var(--duration-normal) var(--ease-standard);
