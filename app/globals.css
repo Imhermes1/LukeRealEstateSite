@@ -1079,8 +1079,8 @@ a:focus-visible {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0;
-  border: none;
+  min-height: 60px;
+  min-width: 180px;
   border-radius: 16px;
   background: rgba(255,255,255,0.15);
   backdrop-filter: blur(12px) saturate(180%);
@@ -1088,45 +1088,32 @@ a:focus-visible {
   box-shadow: 0 4px 16px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.05), inset 0 1px 0 rgba(255,255,255,0.2);
   border: 1px solid rgba(255,255,255,0.2);
   transition: box-shadow 0.2s, background 0.2s;
-  min-height: 60px;
-  min-width: 120px;
   margin: 0 auto;
+  padding: 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 .media-logos a:hover {
   background: rgba(255,255,255,0.22);
   box-shadow: 0 8px 24px rgba(0,0,0,0.15), 0 4px 12px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.3);
   border-color: rgba(255,255,255,0.3);
 }
-
 .media-logo-placeholder {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 60px;
-  background: #151C2E;
-  border-radius: var(--radius-lg);
-  border: 1px solid rgba(207, 186, 151, 0.25);
-  color: #CFBA97;
-  box-shadow: 0 2px 16px rgba(21, 28, 46, 0.08);
-  padding: var(--space-16);
-  margin-bottom: var(--space-8);
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-.media-logos a:hover .media-logo-placeholder,
-.media-logo-placeholder:hover {
-  border-color: #CFBA97;
-  background-color: #151C2E;
-  box-shadow: 0 0 0 3px #CFBA97, 0 4px 20px rgba(21, 28, 46, 0.10);
-  transform: translateY(-2px);
-}
-
-.property-card:hover {
-  border-color: #CFBA97;
-  background: rgba(255,255,255,0.5); /* keep frosted, don't change to gold */
-  box-shadow: 0 6px 24px rgba(21, 28, 46, 0.10);
-  transform: translateY(-4px);
+  background: none;
+  border-radius: 0;
+  border: none;
+  color: var(--color-accent-gold);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
 }
 
 .logo-text {
@@ -2517,4 +2504,51 @@ a:focus-visible {
   background: var(--color-accent-gold);
   color: var(--color-accent-navy);
   opacity: 1;
+}
+
+.btn-hero-large,
+.hero-content .btn-primary,
+.hero-content .btn-primary:hover,
+.hero-content .btn-primary:active,
+.hero-content .btn-primary:focus {
+  color: var(--color-accent-gold) !important;
+}
+
+.media-btn-glass {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 60px;
+  min-width: 180px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.05), inset 0 1px 0 rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: box-shadow 0.2s, background 0.2s;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+.media-btn-glass:hover, .media-btn-glass:focus {
+  background: rgba(255,255,255,0.22);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15), 0 4px 12px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.3);
+  border-color: rgba(255,255,255,0.3);
+  outline: none;
+}
+.media-modal-content {
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-radius: 24px;
+  border: 1px solid rgba(255,255,255,0.22);
+  box-shadow: 0 12px 48px rgba(0,0,0,0.18), 0 0 0 2px var(--color-accent-gold);
+  max-width: 420px;
+  width: 90vw;
+  animation: glassModalIn 0.35s cubic-bezier(0.16,1,0.3,1);
 }
