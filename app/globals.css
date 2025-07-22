@@ -359,10 +359,48 @@ a:focus-visible {
   font-weight: var(--font-weight-medium);
   line-height: 1;
   border: 1px solid transparent;
-  border-radius: var(--radius-base);
+  border-radius: 16px;
   cursor: pointer;
   transition: all var(--duration-fast) var(--ease-standard);
   text-decoration: none;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.1),
+    0 2px 8px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+  border-radius: 16px;
+  pointer-events: none;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.15),
+    0 4px 12px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .btn:focus-visible {
@@ -371,40 +409,39 @@ a:focus-visible {
 }
 
 .btn-primary {
-  background-color: var(--color-primary);
+  background: rgba(21, 28, 46, 0.8);
   color: var(--color-btn-primary-text);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 .btn-primary:hover {
-  background-color: var(--color-primary-hover);
+  background: rgba(21, 28, 46, 0.9);
   color: var(--color-btn-primary-text);
-  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .btn-secondary {
-  background-color: var(--color-accent-navy);
+  background: rgba(207, 186, 151, 0.2);
   color: var(--color-accent-gold);
-  border: 1px solid var(--color-accent-gold);
+  border: 1px solid rgba(207, 186, 151, 0.3);
 }
 
 .btn-secondary:hover {
-  background-color: var(--color-accent-gold);
+  background: rgba(207, 186, 151, 0.3);
   color: var(--color-accent-navy);
-  border: 1px solid var(--color-accent-gold);
-  transform: translateY(-1px);
+  border: 1px solid rgba(207, 186, 151, 0.4);
 }
 
 .btn-secondary-invert {
-  background-color: var(--color-accent-gold);
+  background: rgba(207, 186, 151, 0.3);
   color: var(--color-accent-navy);
-  border: 1px solid var(--color-accent-navy);
+  border: 1px solid rgba(21, 28, 46, 0.3);
 }
 
 .btn-secondary-invert:hover {
-  background-color: var(--color-accent-navy);
+  background: rgba(21, 28, 46, 0.8);
   color: var(--color-accent-gold);
-  border: 1px solid var(--color-accent-gold);
-  transform: translateY(-1px);
+  border: 1px solid rgba(207, 186, 151, 0.4);
 }
 
 .btn-full-width {
@@ -415,14 +452,33 @@ a:focus-visible {
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-semibold);
   padding: var(--space-10) var(--space-20);
-  border-radius: var(--radius-lg);
-  box-shadow: 0 4px 14px rgba(21, 28, 46, 0.4);
+  border-radius: 20px;
+  background: rgba(21, 28, 46, 0.8);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  box-shadow: 
+    0 8px 24px rgba(21, 28, 46, 0.3),
+    0 4px 12px rgba(21, 28, 46, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   transition: all var(--duration-normal) var(--ease-standard);
 }
 
 .btn-hero-large:hover {
   transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(21, 28, 46, 0.5);
+  background: rgba(21, 28, 46, 0.9);
+  box-shadow: 
+    0 12px 32px rgba(21, 28, 46, 0.4),
+    0 6px 16px rgba(21, 28, 46, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.btn-hero-large:active {
+  transform: translateY(-1px);
+  box-shadow: 
+    0 4px 12px rgba(21, 28, 46, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .sticky-header {
@@ -2405,6 +2461,11 @@ a:focus-visible {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: var(--space-12);
+  align-items: stretch;
+}
+.testimonials-grid-4 .testimonial {
+  height: auto;
+  min-height: 120px;
 }
 @media (max-width: 1100px) {
   .testimonials-grid-4 {
@@ -2416,6 +2477,7 @@ a:focus-visible {
     grid-template-columns: 1fr;
   }
 }
+
 .compact-testimonial {
   padding: var(--space-8) var(--space-8);
   min-height: 100px;
