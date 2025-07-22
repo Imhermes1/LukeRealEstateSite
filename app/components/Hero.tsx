@@ -11,21 +11,8 @@ export default function Hero() {
     const timer = setTimeout(() => {
       setIsLoaded(true);
     }, 100);
-
-    // Set playback rate for slow motion
-    if (videoRef.current) {
-      videoRef.current.playbackRate = 0.6;
-    }
-
     return () => clearTimeout(timer);
   }, []);
-
-  useEffect(() => {
-    // Ensure playback rate is set after video loads
-    if (videoRef.current) {
-      videoRef.current.playbackRate = 0.6;
-    }
-  }, [videoRef.current]);
 
   return (
     <section id="hero" className="hero-section" aria-label="Hero">
@@ -41,6 +28,12 @@ export default function Hero() {
           playsInline
           preload="auto"
           style={{ filter: 'grayscale(1)', objectFit: 'cover', width: '100%', height: '100%' }}
+          onLoadedMetadata={() => {
+            if (videoRef.current) {
+              videoRef.current.currentTime = 5;
+              videoRef.current.playbackRate = 0.6;
+            }
+          }}
         />
       </div>
       {/* Overlay and Effects */}
