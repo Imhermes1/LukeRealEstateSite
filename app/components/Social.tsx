@@ -111,31 +111,6 @@ export default function Social() {
           <div className="social-column">
             <h3 className="social-subtitle">Instagram Feed</h3>
             
-            <div className="ig-profile-section">
-              {/* Instagram Profile Header */}
-              <div className="instagram-profile-header">
-              <div className="instagram-profile-info">
-                <img 
-                  src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=80&h=80&q=80" 
-                  alt="Luke Fornieri"
-                  className="instagram-profile-pic"
-                />
-                <div className="instagram-profile-details">
-                  <h4 className="instagram-profile-name">Luke Fornieri</h4>
-                  <p className="instagram-profile-title">Real Estate Agent • Melbourne</p>
-                  <p className="instagram-profile-bio">Premium Property specialist in Melbourne's East & South East🏠✨</p>
-                </div>
-              </div>
-              <a 
-                href="https://instagram.com/lukefornieri" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="instagram-follow-btn-small"
-              >
-                Follow
-              </a>
-            </div>
-
             <div className="instagram-grid">
               {instagramPosts.map((post) => (
                 <a 
@@ -143,7 +118,7 @@ export default function Social() {
                   href={post.permalink} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="instagram-grid-item glass-card gold-glass-border"
+                  className="instagram-grid-item"
                 >
                   <div className="instagram-grid-image">
                     <img 
@@ -152,11 +127,7 @@ export default function Social() {
                       loading="lazy"
                       className="insta-img"
                     />
-                    <div className="instagram-overlay">
-                      <div className="instagram-view-icon">
-                        👁️
-                      </div>
-                    </div>
+                    <div className="instagram-gradient-overlay"></div>
                   </div>
                 </a>
               ))}
@@ -171,7 +142,6 @@ export default function Social() {
               >
                 Follow @lukefornieri on Instagram
               </a>
-            </div>
             </div>
           </div>
           

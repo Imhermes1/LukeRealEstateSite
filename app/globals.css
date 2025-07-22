@@ -2655,3 +2655,74 @@ a:focus-visible {
   filter: grayscale(1);
   pointer-events: none;
 }
+
+.instagram-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: flex-start;
+  margin-bottom: 1.5rem;
+}
+.instagram-grid-item {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  display: block;
+  transition: box-shadow 0.2s, transform 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.instagram-grid-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+.insta-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px;
+}
+.instagram-gradient-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #f9ce34 0%, #ee2a7b 50%, #6228d7 100%);
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+  z-index: 2;
+}
+.instagram-grid-item:hover .instagram-gradient-overlay,
+.instagram-grid-item:focus .instagram-gradient-overlay {
+  opacity: 0.7;
+}
+.instagram-follow-button {
+  display: inline-block;
+  margin: 0 auto;
+  padding: 8px 28px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #f9ce34 0%, #ee2a7b 50%, #6228d7 100%);
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  text-align: center;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+.instagram-follow-button:hover,
+.instagram-follow-button:focus {
+  background: linear-gradient(135deg, #ee2a7b 0%, #f9ce34 100%);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(238,42,123,0.18);
+}
+.instagram-cta {
+  text-align: center;
+  margin-top: 0.5rem;
+}
