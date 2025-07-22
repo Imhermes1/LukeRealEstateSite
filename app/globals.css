@@ -1030,10 +1030,7 @@ a:focus-visible {
 }
 
 .testimonials-grid .testimonial:nth-child(4) {
-  grid-column: 2;
-  justify-self: center;
-  align-self: center;
-  max-width: 400px;
+  /* Removed special positioning for 4th testimonial */
 }
 
 .testimonial {
@@ -1084,15 +1081,21 @@ a:focus-visible {
   justify-content: center;
   padding: 0;
   border: none;
-  border-radius: 0;
-  transition: none;
-  background: none;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.05), inset 0 1px 0 rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: box-shadow 0.2s, background 0.2s;
+  min-height: 60px;
+  min-width: 120px;
+  margin: 0 auto;
 }
-
 .media-logos a:hover {
-  border: none;
-  transform: none;
-  background: none;
+  background: rgba(255,255,255,0.22);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15), 0 4px 12px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.3);
+  border-color: rgba(255,255,255,0.3);
 }
 
 .media-logo-placeholder {
