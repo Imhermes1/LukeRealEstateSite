@@ -30,7 +30,6 @@ export default function MediaCoverage() {
               onClick={() => setOpenIndex(i)}
               aria-label={`View media article: ${article.title}`}
             >
-              <img src={article.image} alt={article.title + ' image'} className="media-article-image" />
               <div className="media-logo-placeholder">
                 <span className="logo-text">{article.title}</span>
               </div>
@@ -42,11 +41,11 @@ export default function MediaCoverage() {
             <div className="modal-overlay" onClick={() => setOpenIndex(null)}></div>
             <div className="modal-content media-modal-content animate-glass-modal">
               <div className="modal-header">
+                <img src={mediaArticles[openIndex].image} alt={mediaArticles[openIndex].title + ' image'} className="media-article-image" />
                 <h3 className="modal-title">{mediaArticles[openIndex].title}</h3>
                 <button className="modal-close" aria-label="Close modal" onClick={() => setOpenIndex(null)}>&times;</button>
               </div>
               <div className="modal-body">
-                <img src={mediaArticles[openIndex].image} alt={mediaArticles[openIndex].title + ' image'} className="media-article-image" />
                 <p style={{ fontSize: '1.05em', marginBottom: 24 }}>{mediaArticles[openIndex].summary}</p>
                 <a
                   href={mediaArticles[openIndex].url}

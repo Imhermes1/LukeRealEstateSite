@@ -19,20 +19,26 @@ export default function Services() {
           <div className="service-card auction-card">
             <h3 className="service-title">Auction Campaigns</h3>
             <p className="service-description">Tailored auction campaigns designed to maximise competition and deliver premium results.</p>
-            <div className="video-container gold-glass-border">
-              <iframe
-                src="https://www.youtube.com/embed/z6rLeOVZcpU?autoplay=1&mute=1"
-                title="Luke Fornieri - Melbourne Premium Real Estate Market"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-                className="services-video"
-              ></iframe>
-            </div>
             <div className="video-subtitle">
               <p><strong>MAK Realty Auction Campaign. Lead Agent: Luke Fornieri Auctioneer: Claude Makdesi</strong></p>
               <p>Address: 1/4 Chute Street Mordialloc. Selling $150,000 Above the Vendors Reserve price</p>
             </div>
+          </div>
+        </div>
+        <div className="services-video-section" style={{ marginTop: '2.5rem' }}>
+          <div className="video-container gold-glass-border">
+            <iframe
+              src="https://www.youtube.com/embed/z6rLeOVZcpU?autoplay=1&mute=1"
+              title="Luke Fornieri - Melbourne Premium Real Estate Market"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              className="services-video"
+            ></iframe>
+          </div>
+          <div className="video-subtitle">
+            <p><strong>MAK Realty Auction Campaign. Lead Agent: Luke Fornieri Auctioneer: Claude Makdesi</strong></p>
+            <p>Address: 1/4 Chute Street Mordialloc. Selling $150,000 Above the Vendors Reserve price</p>
           </div>
         </div>
       </div>
