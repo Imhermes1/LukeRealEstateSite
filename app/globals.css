@@ -582,6 +582,8 @@ a:focus-visible {
   align-items: center;
   justify-content: center;
   background-color: #151C2E;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 .hero-logo {
@@ -590,6 +592,9 @@ a:focus-visible {
   width: auto;
   height: auto;
   opacity: 1;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  filter: none;
 }
 
 /* Hero Image Layer */
