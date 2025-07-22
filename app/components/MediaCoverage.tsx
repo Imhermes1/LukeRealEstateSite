@@ -4,12 +4,14 @@ const mediaArticles = [
   {
     title: 'Herald Sun Templestowe',
     url: 'https://www.realestate.com.au/news/templestowe-europeaninspired-mansion-dubbed-a-mini-museum-with-3m-marble-and-imported-fountain/',
-    summary: 'A feature on the sale of 5 Princely Tce, Templestowe, highlighting its European-inspired design, $3M marble, and imported fountain.'
+    summary: 'A feature on the sale of 5 Princely Tce, Templestowe, highlighting its European-inspired design, $3M marble, and imported fountain.',
+    image: '/images/0361.01 5 Princely Tce, Templestowe-3.jpg'
   },
   {
     title: 'Herald Sun Richmond',
     url: 'https://www.realestate.com.au/news/richmond-house-similar-to-a-wog-boy-setpiece-will-get-you-saying-opa/',
-    summary: 'A spotlight on 9 Manton St, Richmond, a home reminiscent of a Wog Boy setpiece, with unique character and strong buyer interest.'
+    summary: 'A spotlight on 9 Manton St, Richmond, a home reminiscent of a Wog Boy setpiece, with unique character and strong buyer interest.',
+    image: '/images/LowRes_2k_17.jpg'
   }
 ];
 
@@ -28,6 +30,7 @@ export default function MediaCoverage() {
               onClick={() => setOpenIndex(i)}
               aria-label={`View media article: ${article.title}`}
             >
+              <img src={article.image} alt={article.title + ' image'} className="media-article-image" />
               <div className="media-logo-placeholder">
                 <span className="logo-text">{article.title}</span>
               </div>
@@ -43,6 +46,7 @@ export default function MediaCoverage() {
                 <button className="modal-close" aria-label="Close modal" onClick={() => setOpenIndex(null)}>&times;</button>
               </div>
               <div className="modal-body">
+                <img src={mediaArticles[openIndex].image} alt={mediaArticles[openIndex].title + ' image'} className="media-article-image" />
                 <p style={{ fontSize: '1.05em', marginBottom: 24 }}>{mediaArticles[openIndex].summary}</p>
                 <a
                   href={mediaArticles[openIndex].url}

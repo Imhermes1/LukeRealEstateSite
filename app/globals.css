@@ -2552,3 +2552,49 @@ a:focus-visible {
   width: 90vw;
   animation: glassModalIn 0.35s cubic-bezier(0.16,1,0.3,1);
 }
+
+.services-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-24);
+}
+@media (max-width: 1100px) {
+  .services-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 700px) {
+  .services-grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+.gold-glass-border {
+  border-radius: 18px;
+  border: 2.5px solid var(--color-accent-gold);
+  background: linear-gradient(135deg, rgba(207,186,151,0.08) 0%, rgba(255,255,255,0.04) 100%);
+  box-shadow: 0 2px 16px rgba(207,186,151,0.08);
+  padding: 0.5rem;
+  margin-bottom: var(--space-8);
+}
+
+.media-btn-glass {
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.media-article-image {
+  width: 100%;
+  max-width: 180px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 12px 12px 0 0;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.media-modal-content .btn-primary {
+  color: var(--color-accent-gold) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 1.5rem;
+}
