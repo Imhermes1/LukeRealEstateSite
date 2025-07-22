@@ -5,13 +5,13 @@ const mediaArticles = [
     title: 'Herald Sun Templestowe',
     url: 'https://www.realestate.com.au/news/templestowe-europeaninspired-mansion-dubbed-a-mini-museum-with-3m-marble-and-imported-fountain/',
     summary: 'A feature on the sale of 5 Princely Tce, Templestowe, highlighting its European-inspired design, $3M marble, and imported fountain.',
-    image: '/images/0361.01 5 Princely Tce, Templestowe-3.jpg'
+    image: '/images/5-Princely-lg.jpg'
   },
   {
     title: 'Herald Sun Richmond',
     url: 'https://www.realestate.com.au/news/richmond-house-similar-to-a-wog-boy-setpiece-will-get-you-saying-opa/',
     summary: 'A spotlight on 9 Manton St, Richmond, a home reminiscent of a Wog Boy setpiece, with unique character and strong buyer interest.',
-    image: '/images/LowRes_2k_17.jpg'
+    image: '/images/richmond-article.jpg'
   }
 ];
 
