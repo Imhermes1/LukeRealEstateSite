@@ -51,7 +51,7 @@ export default function Social() {
     },
     {
       platform: 'Facebook',
-      url: 'https://facebook.com/lukefornieri',
+      url: 'https://www.facebook.com/LukeFornieriRealEstate',
       icon: '📘',
       label: 'Connect on Facebook',
       color: '#1877F2'
