@@ -69,17 +69,30 @@ export default function Social() {
         const youtubeData = await fetchYouTubeVideos();
         setYoutubeVideos(youtubeData.length > 0 ? youtubeData : FALLBACK_YOUTUBE_VIDEOS);
 
-        // Fetch Instagram posts via API route
+        // Fetch Instagram posts via API route (with proxy for images)
         try {
           const instagramResponse = await fetch('/api/instagram');
           if (instagramResponse.ok) {
             const instagramData = await instagramResponse.json();
             if (instagramData.data && instagramData.data.length > 0) {
               setInstagramPosts(instagramData.data);
-              console.log('✅ Instagram posts loaded from API:', instagramData.data.length);
+              console.log('✅ Instagram posts loaded from API (with proxy):', instagramData.data.length);
             } else {
-              setInstagramPosts(FALLBACK_INSTAGRAM_POSTS);
-              console.log('⚠️ Using fallback Instagram posts');
+              // Try basic display API as fallback
+              const basicResponse = await fetch('/api/instagram/basic');
+              if (basicResponse.ok) {
+                const basicData = await basicResponse.json();
+                if (basicData.data && basicData.data.length > 0) {
+                  setInstagramPosts(basicData.data);
+                  console.log('✅ Instagram posts loaded from Basic Display API:', basicData.data.length);
+                } else {
+                  setInstagramPosts(FALLBACK_INSTAGRAM_POSTS);
+                  console.log('⚠️ Using fallback Instagram posts');
+                }
+              } else {
+                setInstagramPosts(FALLBACK_INSTAGRAM_POSTS);
+                console.log('⚠️ Using fallback Instagram posts');
+              }
             }
           } else {
             throw new Error('Instagram API request failed');
@@ -126,6 +139,12 @@ export default function Social() {
                       alt={post.caption ? `Instagram post: ${post.caption.substring(0, 50)}...` : "Instagram post"}
                       loading="lazy"
                       className="insta-img"
+                      onError={(e) => {
+                        // Fallback to a placeholder image if Instagram image fails to load
+                        const target = e.target as HTMLImageElement;
+                        target.src = 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=400&q=80';
+                        target.alt = 'Instagram post (image unavailable)';
+                      }}
                     />
                     <div className="instagram-gradient-overlay"></div>
                   </div>
